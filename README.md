@@ -1,62 +1,62 @@
-# JSBSim Reference Manual
+# JSBSim ရည်ညွှန်းလက်စွဲ (JSBSim Reference Manual)
 
-This site is the home of the [JSBSim Reference Manual](https://jsbsim-team.github.io/jsbsim-reference-manual), a website hosted by GitHub Pages, based on [MkDocs](https://www.mkdocs.org/) with the [Material for MkDocs](https://squidfunk.github.io/mkdocs-material/) theme.
+ဤဆိုက်သည် GitHub Pages မှ hosting လုပ်ပေးထားသော၊ [MkDocs](https://www.mkdocs.org/) ကို အခြေခံ၍ [Material for MkDocs](https://squidfunk.github.io/mkdocs-material/) theme ဖြင့် ဖန်တီးထားသော [JSBSim Reference Manual](https://jsbsim-team.github.io/jsbsim-reference-manual) ၏ မူလဆိုက်ဖြစ်ပါသည်။
 
 <p align="center">
 <img width="250" heigth="250" src="https://github.com/JSBSim-Team/jsbsim-logo/blob/master/logo_JSBSIM_globe.png">
 </p>
 
-[JSBSim](https://github.com/JSBSim-Team/jsbsim) is a multi-platform, general purpose object-oriented Flight Dynamics Model (FDM) written in C++. The FDM is essentially the physics & math model that defines the movement of an aircraft, rocket, etc., under the forces and moments applied to it using the various control mechanisms and from the forces of nature. JSBSim can be run in a standalone batch mode flight simulator (no graphical displays) for testing and study, or integrated with [FlightGear](https://www.flightgear.org/) or other flight simulator.
+[JSBSim](https://github.com/JSBSim-Team/jsbsim) သည် C++ ဖြင့်ရေးသားထားသော၊ platform အမျိုးမျိုးတွင် အသုံးပြုနိုင်သည့် ယေဘုယျရည်ရွယ်ချက်အတွက် object-oriented Flight Dynamics Model (FDM) တစ်ခု ဖြစ်ပါသည်။ FDM ဆိုသည်မှာ လေယာဉ်၊ ဒုံးကျည် စသည်တို့အပေါ် ထိန်းချုပ်မှုယန္တရားအမျိုးမျိုးနှင့် သဘာဝ တွန်းအားများကို အသုံးပြု၍ သက်ရောက်စေသည့် အင်အားနှင့် moment များအောက်တွင် ၎င်းတို့၏ လှုပ်ရှားမှုကို သတ်မှတ်ပေးသည့် physics & math model ပင် ဖြစ်ပါသည်။ JSBSim ကို graphical display မပါသော standalone batch mode flight simulator အဖြစ် စမ်းသပ်မှုနှင့် လေ့လာမှုအတွက် run နိုင်သကဲ့သို့၊ [FlightGear](https://www.flightgear.org/) သို့မဟုတ် အခြား flight simulator များနှင့် ပေါင်းစပ်၍လည်း အသုံးပြုနိုင်ပါသည်။
  
-## Contribute
+## ပါဝင်ကူညီရန် (Contribute)
 
-### Report bugs or request features.
+### Bug များ သတင်းပို့ရန် သို့မဟုတ် feature များ တောင်းဆိုရန်
 
-If you want to report bugs or request features/new additions, please [open a new issue](https://github.com/JSBSim-Team/jsbsim-reference-manual/issues).
+Bug များ သတင်းပို့လိုပါက သို့မဟုတ် feature/အသစ်ထည့်သွင်းမှုများ တောင်းဆိုလိုပါက [issue အသစ်တစ်ခု ဖွင့်ပါ](https://github.com/JSBSim-Team/jsbsim-reference-manual/issues)။
 
-### Contribute to the documentation
+### စာရွက်စာတမ်း (documentation) ကို ပါဝင်ကူညီရန်
 
-If you want to contribute to the documentation, please [submit a pull request](https://github.com/JSBSim-Team/jsbsim-reference-manual/pulls)
+Documentation တွင် ပါဝင်ကူညီလိုပါက [pull request တစ်ခု တင်သွင်းပါ](https://github.com/JSBSim-Team/jsbsim-reference-manual/pulls)
 
-For that, you will need to fork this repository and install [Python3](https://www.python.org/) and [pip](https://pip.pypa.io/en/stable/installation/) on your computer.
+ထိုသို့ ပြုလုပ်ရန်အတွက် သင်သည် ဤ repository ကို fork လုပ်ပြီး သင့်ကွန်ပျူတာတွင် [Python3](https://www.python.org/) နှင့် [pip](https://pip.pypa.io/en/stable/installation/) ကို install လုပ်ရန် လိုအပ်ပါမည်။
 
-1. Install the prerequisites mentioned above.
+1. အထက်တွင် ဖော်ပြထားသော prerequisite များကို install လုပ်ပါ။
 
-2. Clone the repository.
+2. Repository ကို clone လုပ်ပါ။
 ```bash
 git clone https://github.com/JSBSim-Team/jsbsim-reference-manual.git
 ```
 
-3. Create an isolated virtual environment.
+3. သီးသန့် virtual environment တစ်ခု ဖန်တီးပါ။
 ```bash
 cd jsbsim-reference-manual
 python3 -m venv env # OR < py -m venv env > on Windows
 ```
 
-4. Activate the virtual environment and install required PyPi packages.
+4. Virtual environment ကို activate လုပ်ပြီး လိုအပ်သော PyPi package များကို install လုပ်ပါ။
 ```bash
 source env/bin/activate # OR < .\env\Scripts\activate > on Windows
 python3 -m pip install -r requirements.txt # OR < py -m pip install -r requirements.txt > on Windows
 ```
 
-5. Build the site and make it available on a local server.
+5. ဆိုက်ကို build လုပ်ပြီး local server တစ်ခုတွင် ရရှိနိုင်အောင် ပြုလုပ်ပါ။
 ```bash
 mkdocs serve
 ```
 
-6. Browse to http://localhost:8000
+6. http://localhost:8000 ကို ဖွင့်ကြည့်ပါ။
 
-MkDocs will then run a local web server at http://localhost:8000, rebuilding the site any time you make a change. You can exit at any time by pressing (`CTRL`+`C`).
+ထို့နောက် MkDocs သည် http://localhost:8000 တွင် local web server တစ်ခုကို run ပေးမည်ဖြစ်ပြီး၊ သင်ပြောင်းလဲမှု ပြုလုပ်တိုင်း ဆိုက်ကို ပြန်လည် build ပေးပါလိမ့်မည်။ (`CTRL`+`C`) ကို နှိပ်ခြင်းဖြင့် အချိန်မရွေး ထွက်နိုင်ပါသည်။
 
-You can also build the manual as a static site for offline use using the commands shown below:
+အောက်ပါ command များကို အသုံးပြု၍ manual ကို offline အသုံးပြုရန် static site အဖြစ်လည်း build လုပ်နိုင်ပါသည်-
 ```bash
 export OFFLINE=true # OR < set OFFLINE=true > on Windows
 export CI=false
 mkdocs build
 ```
-The built manual will be located in the *site/* directory. You will now be able to use the search feature offline.
+Build လုပ်ပြီးသော manual သည် *site/* directory တွင် ရှိပါမည်။ ယခုအခါ သင်သည် search feature ကို offline တွင် အသုံးပြုနိုင်ပါပြီ။
 
-When done, you can exit your virtual environment with the following command:
+ပြီးဆုံးပါက၊ အောက်ပါ command ဖြင့် သင့် virtual environment မှ ထွက်နိုင်ပါသည်-
 ```bash
 deactivate
 ```
