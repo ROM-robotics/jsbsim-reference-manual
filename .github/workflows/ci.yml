@@ -3,6 +3,7 @@ on:
   push:
     branches:
       - rom_master
+  workflow_dispatch:
 jobs:
   deploy:
     permissions:
