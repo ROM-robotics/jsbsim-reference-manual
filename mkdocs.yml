@@ -1,7 +1,7 @@
 site_name: JSBSim Manual
-site_url: https://jsbsim-team.github.io/jsbsim-reference-manual
+site_url: https://rom-robotics.github.io/jsbsim-reference-manual
 site_description: Online JSBSim manual (User, and Programmer Manual)
-repo_url: https://github.com/JSBSim-Team/jsbsim-reference-manual
+repo_url: https://github.com/ROM-robotics/jsbsim-reference-manual
 repo_name: jsbsim-reference-manual
 
 # When adding pages to nav you can supply and index page as the first file of
