@@ -5,17 +5,17 @@ description: How JSBSim simulates flight.
 
 # Simulation
 
-While the JSBSim user does not need to know some of the finer details of the flight simulator operation, it can be helpful to understand basically how JSBSim works. Some of the most important concepts are described in this section.
+JSBSim user သည် flight simulator ၏ လုပ်ဆောင်ပုံအကြောင်း အသေးစိတ်အချို့ကို သိရန် မလိုအပ်သော်လည်း၊ JSBSim ၏ အခြေခံ အလုပ်လုပ်ပုံကို နားလည်ထားခြင်းက အထောက်အကူ ဖြစ်စေနိုင်ပါသည်။ အရေးအကြီးဆုံး concept အချို့ကို ဤအပိုင်းတွင် ဖော်ပြထားပါသည်။
 
-- Frames of reference are used to describe the placement and location of various items in a vehicle model.
+- Frame of reference (ရည်ညွှန်းဘောင်) များကို လေယာဉ်မော်ဒယ်တစ်ခုရှိ ပစ္စည်းအမျိုးမျိုး၏ တည်နေရာနှင့် နေရာချထားမှုကို ဖော်ပြရန် အသုံးပြုပါသည်။
 
-- There is flexibility in how the units of measure can be specified when defining a vehicle model – both English and metric units are supported.
+- လေယာဉ်မော်ဒယ်တစ်ခု သတ်မှတ်စဉ်တွင် တိုင်းတာမှု unit များကို ဘယ်လို သတ်မှတ်နိုင်သည်ဆိုသည်တွင် flexibility ရှိပါသည် — English unit နှင့် metric unit နှစ်မျိုးစလုံးကို support လုပ်ပါသည်။
 
-- The use of “Properties” permits JSBSim to be a generic simulator, providing a way to interface the various systems with parameters (or variables). Properties are used throughout the configuration files that describe aircraft and engine characteristics.
+- “Properties” ကို အသုံးပြုခြင်းက JSBSim ကို generic simulator တစ်ခု ဖြစ်စေပြီး၊ system အမျိုးမျိုးကို parameter (သို့မဟုတ် variable) များနှင့် interface ပြုလုပ်ရန် နည်းလမ်းတစ်ခု ပေးပါသည်။ Property များကို လေယာဉ်နှင့် engine ၏ လက္ခဏာများကို ဖော်ပြသော configuration file များတစ်လျှောက်လုံးတွင် အသုံးပြုပါသည်။
 
-- Obviously, math plays a big part in modeling flight physics. JSBSim makes use of data tables, as flight dynamics characteristics are often stored in tables. Arbitrary algebraic functions can also be set up in JSBSim, allowing broad freedom for describing aerodynamic and flight control characteristics.
+- ထင်ရှားသည့်အတိုင်း၊ flight physics ကို model ပြုလုပ်ရာတွင် သင်္ချာသည် အရေးပါသော အခန်းကဏ္ဍကို ပါဝင်ပါသည်။ Flight dynamics လက္ခဏာများကို table များတွင် မကြာခဏ သိမ်းဆည်းထားလေ့ရှိသောကြောင့် JSBSim သည် data table များကို အသုံးပြုပါသည်။ Aerodynamic နှင့် flight control လက္ခဏာများကို ဖော်ပြရာတွင် ကျယ်ပြန့်သော လွတ်လပ်မှုပေးရန် JSBSim တွင် အလျှောက် algebraic function များကိုလည်း သတ်မှတ်နိုင်ပါသည်။
 
-- Users have to have, at least a basic knowledge, of conventional forces and moments acting on an airplane in flight.
+- Users များသည် လေယာဉ်တစ်စင်း ပျံသန်းနေစဉ် သက်ရောက်နေသော ယေဘုယျ force (အားအင်) နှင့် moment (moment) များအကြောင်း အနည်းဆုံး အခြေခံ အသိပညာရှိရပါမည်။
 
-- The understanding of flight controls and of how system modelling can be achieved in JSBSim are the keys for successful and effective simulations.
+- Flight control များနှင့် JSBSim တွင် system modeling ကို မည်သို့ ပြီးမြောက်အောင် လုပ်ဆောင်နိုင်သည်ကို နားလည်ခြင်းသည် အောင်မြင်ပြီး ထိရောက်သော simulation များအတွက် သော့ချက်ဖြစ်ပါသည်။
 

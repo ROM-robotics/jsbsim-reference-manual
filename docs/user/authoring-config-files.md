@@ -7,8 +7,8 @@ categories: [menu, content, user-manual, authoring-configuration-files]
 permalink: /mypages/user-manual-authoring-configuration-files/
 ---
 
-# Authoring configuration files
+# Configuration file ရေးသားခြင်း
 
 !!! note "TODO"
 
-    Complete page contents.
+    စာမျက်နှာ အကြောင်းအရာများကို ပြည့်စုံစွာ ဖြည့်စွက်ရန်။

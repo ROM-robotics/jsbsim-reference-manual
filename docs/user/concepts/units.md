@@ -3,25 +3,25 @@ title: Units
 description: JSBSim's supported units of measurement.
 ---
 
-# Units
+# Units (တိုင်းတာမှု ယူနစ်များ)
 
-JSBSim uses English units for internal calculations almost exclusively. However, it is possible to input some parameters in the configuration file using different units. In fact, to avoid confusion, it is recommended that the unit always be specified. Units are specified using the `unit` attribute. For instance, the specification for the wingspan looks like this:
+JSBSim သည် internal calculation များအတွက် English unit ကိုသာ အဓိကအားဖြင့် အသုံးပြုပါသည်။ သို့သော်၊ configuration file တွင် parameter အချို့ကို မတူညီသော unit များဖြင့် input ထည့်နိုင်ပါသည်။ စင်စစ်အားဖြင့် ရှုပ်ထွေးမှုကို ရှောင်ရှားရန်၊ unit ကို အမြဲတမ်း သတ်မှတ်ရန် အကြံပြုပါသည်။ Unit များကို `unit` attribute ကို အသုံးပြု၍ သတ်မှတ်ပါသည်။ ဥပမာအားဖြင့်၊ wingspan (အတောင်ပံအကျယ်) အတွက် specification သည် ဤကဲ့သို့ ဖြစ်ပါသည်-
 
 ```xml
 <wingspan unit="FT"> 35.8 </wingspan>
 ```
 
-The above statement specifies a wingspan of 35.8 feet. The following statement specifying the wingspan in meters would result in the wingspan being converted to 35.8 feet as it was read in:
+အထက်ပါ statement က wingspan ကို ပေ ၃၅.၈ ပေ (35.8 feet) ဟု သတ်မှတ်ပါသည်။ Wingspan ကို မီတာဖြင့် သတ်မှတ်သော အောက်ပါ statement သည် ဖတ်ရှုစဉ်တွင် ပေ ၃၅.၈ ပေသို့ ပြောင်းလဲသွားမည် ဖြစ်ပါသည်-
 
 ```xml
 <wingspan unit="M"> 10.91 </wingspan>
 ```
 
-The two statements for wingspan are effectively equivalent.
+Wingspan အတွက် statement နှစ်ခုစလုံးသည် အကျိုးသက်ရောက်မှုအားဖြင့် တူညီကြပါသည်။
 
-The following units are currently supported in JSBSim:
+လက်ရှိ JSBSim တွင် support လုပ်ထားသော unit များမှာ အောက်ပါအတိုင်း ဖြစ်ပါသည်-
 
-**Length**
+**အရှည် (Length)**
 
 | `unit=`  | unit   |
 | ---:     | :---   |
@@ -30,14 +30,14 @@ The following units are currently supported in JSBSim:
 | `M`      | m      |
 | `KM`     | km     |
 
-**Area**
+**ဧရိယာ (Area)**
 
 | `unit=`  | unit   |
 | ---:     | :---   |
 | `M2`     | m²     |
 | `FT2`    | ft²    |
 
-**Volume**
+**ပမာဏ (Volume)**
 
 | `unit=`  | unit   |
 | ---:     | :---   |
@@ -46,56 +46,56 @@ The following units are currently supported in JSBSim:
 | `M3`     | m³     |
 | `LTR`    | l      |
 
-**Mass and Weight**
+**အလေးချိန်နှင့် ဝန် (Mass and Weight)**
 
 | `unit=`  | unit   |
 | ---:     | :---   |
 | `LBS`    | lbm    |
 | `KG`     | kg     |
 
-**Moments of Inertia**
+**လှည့်တုံ့ဆွဲမှု (Moments of Inertia)**
 
 | `unit=`    | unit   |
 | ---:       | :---   |
 | `SLUG*FT2` | slug ft² |
 | `KG*M2`    | kg m²  |
 
-**Angles**
+**ထောင့် (Angles)**
 
 | `unit=`    | unit   |
 | ---:       | :---   |
 | `RAD`      | rad    |
 | `DEG`      | deg    |
 
-**Spring Force**
+**စပရင်အားအင် (Spring Force)**
 
 | `unit=`    | unit   |
 | ---:       | :---   |
 | `N/M`      | N/m    |
 | `LBS/FT`   | lb/ft  |
 
-**Damping Force**
+**တုန်ခါမှု ထိန်းချုပ်အားအင် (Damping Force)**
 
 | `unit=`    | unit   |
 | ---:       | :---   |
 | `N/M/SEC`  | N/(m s) |
 | `LBS/FT/SEC` | lb/(ft s) |
 
-**Power**
+**စွမ်းအား (Power)**
 
 | `unit=`    | unit   |
 | ---:       | :---   |
 | `WATTS`    | W      |
 | `HP`       | Hp     |
 
-**Force**
+**အားအင် (Force)**
 
 | `unit=`    | unit   |
 | ---:       | :---   |
 | `LBS`      | lb     |
 | `N `       | N      |
 
-**Velocity**
+**အလျင် (Velocity)**
 
 | `unit=`    | unit   |
 | ---:       | :---   |
@@ -103,14 +103,14 @@ The following units are currently supported in JSBSim:
 | `FT/SEC`   | ft/s   |
 | `M/S`      | m/s    |
 
-**Torque**
+**လှည့်အားအင် (Torque)**
 
 | `unit=`    | unit   |
 | ---:       | :---   |
 | `N*M`      | N m    |
 | `FT*LBS`   | lb ft  |
 
-**Pressure**
+**ဖိအား (Pressure)**
 
 | `unit=`    | unit   |
 | ---:       | :---   |

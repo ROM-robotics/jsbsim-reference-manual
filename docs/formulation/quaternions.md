@@ -1,6 +1,6 @@
 ---
 title: Quaternions
-description: How JSBSim makes use of quaternions.
+description: JSBSim သည် quaternion များကို မည်သို့ အသုံးပြုသည်။
 ---
 
-TBD
+ဖြည့်စွက်ရန် ကျန်ရှိနေသည် (TBD)

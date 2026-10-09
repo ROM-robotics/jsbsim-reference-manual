@@ -1,11 +1,11 @@
 ---
-title: References
-description: JSBSim Reference Manual references.
+title: ကိုးကားချက်များ
+description: JSBSim ရည်ညွှန်းလက်စွဲ ကိုးကားချက်များ။
 tags:
   - menu
 ---
 
-# References
+# ကိုးကားချက်များ
 
 1. Stevens, B. L., Lewis, F. L., Johnson, E. N.,
    *Aircraft Control and Simulation: Dynamics, Controls Design, and Autonomous Systems*,

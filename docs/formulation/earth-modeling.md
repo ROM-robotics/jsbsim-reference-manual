@@ -1,53 +1,53 @@
 ---
 title: Earth modeling
-description: How JSBSim models planet Earth.
+description: JSBSim က ကမ္ဘာဂြိုဟ်ကို မည်သို့ model ပြုလုပ်သည်။
 ---
 
-# Earth Modelling
+# Earth Modelling (ကမ္ဘာ့ပြင် Model ပြုလုပ်ခြင်း)
 
-TBD
+ဖြည့်စွက်ရန် ကျန်ရှိနေသည် (TBD)
 
-## Longitude Definitions
+## Longitude သတ်မှတ်ချက်များ
 
-TBD
+ဖြည့်စွက်ရန် ကျန်ရှိနေသည် (TBD)
 
-## Geocentric Coordinates of a Point
+## Point တစ်ခု၏ Geocentric Coordinate များ
 
-TBD
+ဖြည့်စွက်ရန် ကျန်ရှိနေသည် (TBD)
 
-## Geodetic Coordinates of a Point
+## Point တစ်ခု၏ Geodetic Coordinate များ
 
-TBD
+ဖြည့်စွက်ရန် ကျန်ရှိနေသည် (TBD)
 
-## Radii of Curvature
+## Curvature Radius များ
 
-TBD
+ဖြည့်စွက်ရန် ကျန်ရှိနေသည် (TBD)
 
-## Trigonometric Relationships for the Spheroid
+## Spheroid အတွက် Trigonometric ဆက်စပ်မှုများ
 
-TBD
+ဖြည့်စွက်ရန် ကျန်ရှိနေသည် (TBD)
 
-## Cartesian/Polar Coordinate Conversions
+## Cartesian/Polar Coordinate ပြောင်းလဲမှုများ
 
-TBD
+ဖြည့်စွက်ရန် ကျန်ရှိနေသည် (TBD)
 
-## Earth-Related Coordinate Transformations
+## Earth နှင့်ဆိုင်သော Coordinate ပြောင်းလဲမှုများ
 
-TBD
+ဖြည့်စွက်ရန် ကျန်ရှိနေသည် (TBD)
 
 
 ---
 
-The dry air adiabatic lapse rate (DALR) is 3&nbsp;°C per 1000&nbsp;ft (304.8&nbsp;m),
-or 1&nbsp;°C per 100&nbsp;m.
-The saturated-air adiabatic lapse rate (SALR) is 1.5&nbsp;°C per 1000&nbsp;ft or 0.5&nbsp;°C
-per 100&nbsp;m. Therefore,
-$\lambda_\mathrm{SALR} = \frac{1}{2} \lambda_\mathrm{DALR}$.
+Dry air adiabatic lapse rate (DALR) သည် 1000&nbsp;ft (304.8&nbsp;m) လျှင် 3&nbsp;°C ဖြစ်ပြီး၊
+100&nbsp;m လျှင် 1&nbsp;°C ဖြစ်ပါသည်။
+Saturated-air adiabatic lapse rate (SALR) သည် 1000&nbsp;ft လျှင် 1.5&nbsp;°C သို့မဟုတ် 100&nbsp;m
+လျှင် 0.5&nbsp;°C ဖြစ်ပါသည်။ ထို့ကြောင့်၊
+$\lambda_\mathrm{SALR} = \frac{1}{2} \lambda_\mathrm{DALR}$ ဖြစ်ပါသည်။
 
-The rate of change of temperature with height $h$ in the atmospheric layers at a
-place and time is called its *temperature lapse rate* or simply *lapse rate*,
-which is denoted by $\lambda$. The lapse rate is considered positive if the temperature
-decreases with height, and vice versa.
+နေရာတစ်ခုနှင့် အချိန်တစ်ခုတွင် atmospheric layer များထဲရှိ height $h$ နှင့်အတူ temperature
+ပြောင်းလဲမှု နှုန်းကို ၎င်း၏ *temperature lapse rate* သို့မဟုတ် ရိုးရှင်းစွာ *lapse rate* ဟု ခေါ်ပြီး
+$\lambda$ ဖြင့် ဖော်ပြပါသည်။ Height တိုးလာသည်နှင့်အမျှ temperature လျော့ကျပါက lapse rate ကို
+positive ဟု ယူဆပြီး၊ ဆန့်ကျင်ဘက်လည်း ထို့အတူပင် ဖြစ်ပါသည်။
 
 $$
 \begin{equation}

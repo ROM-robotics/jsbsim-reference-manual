@@ -3,6 +3,6 @@ title: Formulation Manual
 description: JSBSim Formulation Manual home page.
 ---
 
-# Formulation manual
+# Formulation manual (ဖော်မြူလာ လမ်းညွှန်)
 
-TBD
+ဖြည့်စွက်ရန် ကျန်ရှိနေသည် (TBD)

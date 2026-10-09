@@ -3,17 +3,17 @@ title: Forces and moments
 description: Forces and moments in JSBSim.
 ---
 
-# Forces and Moments
+# Forces and Moments (အားအင်များနှင့် Moment များ)
 
-## Aerodynamics
+## Aerodynamics (လေထုဒိုင်နမစ်)
 
-There are several ways to model the aerodynamic forces and moments (torques) that act on an aircraft. JSBSim started out by using the coefficient buildup method. In the coefficient buildup method, the lift force (for instance) is determined by summing all of the contributions to lift. The contributions differ depending on the aircraft and the fidelity of the model, but contributions to lift can include those from:
+လေယာဉ်တစ်စင်းအပေါ် သက်ရောက်နေသော aerodynamic force များနှင့် moment (torque) များကို model ပြုလုပ်ရန် နည်းလမ်းများစွာ ရှိပါသည်။ JSBSim သည် coefficient buildup method ကို အသုံးပြု၍ စတင်ခဲ့ပါသည်။ Coefficient buildup method တွင်၊ lift force (ဥပမာအားဖြင့်) ကို lift ဆီသို့ ပံ့ပိုးသော အင်္ဂါရပ်အားလုံးကို ပေါင်းစည်း၍ ဆုံးဖြတ်ပါသည်။ ပံ့ပိုးမှုများသည် လေယာဉ်နှင့် model ၏ ကြိုက်နှစ်သက်မှု (fidelity) အလိုက် ကွဲပြားသော်လည်း၊ lift ဆီသို့ ပံ့ပိုးနိုင်သော အရာများတွင် အောက်ပါများ ပါဝင်နိုင်ပါသည်-
 
-- Wing
+- အတောင်ပံ (Wing)
 - Elevator
-- Flaps
+- Flap
 
-Aerodynamic coefficients are numbers which, when multiplied by certain other values (such as dynamic pressure and wing area), result in a force or moment. The coefficients can be taken from flight test reports or textbooks, or they can be calculated using software (such as Digital DATCOM or other commercially available programs) or by hand calculations. Eventually, JSBSim added support for aerodynamic properties specified as functions. Within the `<aerodynamics>` section of a configuration file there are six subsections representing the 3 force and 3 moment axes (for a total of six degrees of freedom). The basic layout of the aerodynamics section is as follows:
+Aerodynamic coefficient များသည် dynamic pressure နှင့် wing area ကဲ့သို့သော အခြားတန်ဖိုးအချို့နှင့် မြှောက်လိုက်သောအခါ force သို့မဟုတ် moment တစ်ခု ထွက်ပေါ်လာသော နံပါတ်များ ဖြစ်ပါသည်။ Coefficient များကို flight test report များ သို့မဟုတ် စာအုပ်များမှ ယူနိုင်သကဲ့သို့၊ software (ဥပမာ Digital DATCOM သို့မဟုတ် အခြား commercially available program) ကို အသုံးပြု၍ တွက်ချက်နိုင်သလို၊ လက်ဖြင့် တွက်ချက်၍လည်း ရယူနိုင်ပါသည်။ နောက်ဆုံးတွင် JSBSim သည် function များအဖြစ် သတ်မှတ်ထားသော aerodynamic property များကို support ထပ်ဖြည့်ခဲ့ပါသည်။ Configuration file တစ်ခု၏ `<aerodynamics>` section အတွင်း၊ force axis ၃ ခုနှင့် moment axis ၃ ခု (6 degrees of freedom စုစုပေါင်း) ကို ကိုယ်စားပြုသော subsection ၆ ခု ရှိပါသည်။ Aerodynamics section ၏ အခြေခံ layout မှာ အောက်ပါအတိုင်း ဖြစ်ပါသည်-
 
 ```xml
 <aerodynamics>
@@ -38,15 +38,14 @@ Aerodynamic coefficients are numbers which, when multiplied by certain other val
 </aerodynamics>
 ```
 
-Individual axes are not all absolutely required. There are several standard grouped sets of axes that are supported in JSBSim:
+Axis တစ်ခုချင်းစီကို အားလုံး မဖြစ်မနေ သတ်မှတ်ရန် မလိုအပ်ပါ။ JSBSim တွင် support လုပ်ထားသော axis အုပ်စု standard အမျိုးမျိုး ရှိပါသည်-
 
 - `"DRAG"`, `"SIDE"`, `"LIFT"` (wind axes)
 - `"X"`, `"Y"`, `"Z"` (body axes)
 - `"AXIAL"`, `"SIDE"`, `"NORMAL"` (body axes)
 
-All three systems accept `"ROLL"`, `"PITCH"`, `"YAW"` axis definitions. The axial systems cannot be mixed.
-Within the axis elements, functions are used to define individual force or moment contributions to the total for that axis. Functions are used throughout JSBSim. In defining a force or moment, functions can employ the use of tables, constants, trigonometric functions, or other standard C
-library functions. Simulation parameters are referenced via properties. Here is an example:
+System သုံးခုစလုံးသည် `"ROLL"`, `"PITCH"`, `"YAW"` axis definition များကို လက်ခံပါသည်။ Axial system များကို ရောနှောသုံးစွဲ၍ မရပါ။
+Axis element များအတွင်း၊ function များကို axis ထို၏ စုစုပေါင်းသို့ individual force သို့မဟုတ် moment ပံ့ပိုးမှုများ သတ်မှတ်ရန် အသုံးပြုပါသည်။ Function များကို JSBSim တစ်လျှောက်လုံးတွင် အသုံးပြုပါသည်။ Force သို့မဟုတ် moment တစ်ခု သတ်မှတ်ရာတွင်၊ function များသည် table, constant, trigonometric function, သို့မဟုတ် standard C library function အခြားများကို အသုံးပြုနိုင်ပါသည်။ Simulation parameter များကို property များမှတစ်ဆင့် ရည်ညွှန်းပါသည်။ ဥပမာတစ်ခု ဖော်ပြရန်-
 
 ```xml
 <function name="aero/force/lift_due_to_flap_deflection">
@@ -67,20 +66,20 @@ library functions. Simulation parameters are referenced via properties. Here is 
 </function>
 ```
 
-In this case, a description in words of what the above does is as follows: the value of the function is the product of the `ground-effect-factor-lift`, `qbar-area`, and the value determined by the table, which is indexed as a function of flap position in degrees.
+ဤကိစ္စတွင်၊ အထက်ပါအရာသည် ဘာကို လုပ်ဆောင်သည်ကို စကားဖြင့် ဖော်ပြပါက အောက်ပါအတိုင်း ဖြစ်ပါသည်- function ၏ value သည် `ground-effect-factor-lift`, `qbar-area`, နှင့် flap position (degree ဖြင့်) ၏ function အဖြစ် index လုပ်ထားသော table က ဆုံးဖြတ်ပေးသည့် value တို့၏ product (မြှောက်ရလဒ်) ဖြစ်ပါသည်။
 
-All of the functions in an `<axis/>` section are summed and applied to the aircraft in the appropriate manner. There is some flexibility in this format, though. Functions that are specified outside of any `<axis/>` section are created and calculated, but they do not specifically contribute to any force or moment total by themselves. However, they can be referenced by other functions that are in an `<axis/>` section. This technique allows calculations that might be applied to several individual functions to be performed once and used several times. The technique can be taken even further, with actual aerodynamic coefficients being calculated outside of an `<axis/>` definition, with the coefficients subsequently being multiplied within function definitions by the various factors (properties) that turn them into forces and moments inside an `<axis/>` definition.
+`<axis/>` section တစ်ခုအတွင်းရှိ function အားလုံးကို ပေါင်းစည်း၍ သင့်လျော်သော နည်းလမ်းဖြင့် လေယာဉ်အပေါ် သက်ရောက်စေပါသည်။ သို့သော်လည်း ဤ format တွင် flexibility အချို့ ရှိပါသည်။ `<axis/>` section တစ်ခုခု၏ အပြင်ဘက်တွင် သတ်မှတ်ထားသော function များကို ဖန်တီး၍ တွက်ချက်ပေးသော်လည်း၊ ၎င်းတို့သည် force သို့မဟုတ် moment စုစုပေါင်းတစ်ခုခုအတွက် ကိုယ်တိုင် တိုက်ရိုက် ပံ့ပိုးမှု မပြုပါ။ သို့သော်လည်း `<axis/>` section တစ်ခုအတွင်း ရှိနေသော function အခြားများက ၎င်းတို့ကို ရည်ညွှန်းနိုင်ပါသည်။ ဤနည်းလမ်းက individual function များစွာတွင် အသုံးချနိုင်သော တွက်ချက်မှုများကို တစ်ကြိမ်သာ ပြုလုပ်ပြီး အကြိမ်များစွာ ပြန်အသုံးပြုနိုင်စေပါသည်။ ဤနည်းလမ်းကို ပို၍ပင် ထပ်မံတိုးချဲ့နိုင်ပြီး၊ actual aerodynamic coefficient များကို `<axis/>` definition တစ်ခု၏ အပြင်ဘက်တွင် တွက်ချက်ထား၍၊ ထို coefficient များကို `<axis/>` definition တစ်ခုအတွင်း force နှင့် moment များအဖြစ် ပြောင်းလဲပေးသော factor (property) အမျိုးမျိုးဖြင့် function definition များအတွင်း နောက်ဆက်တွဲ မြှောက်ထားနိုင်ပါသည်။
 
-As an example, let’s examine the instantaneous lift force $L(t)$. It is expressed with the following build-up formula:
+ဥပမာအနေဖြင့်၊ instantaneous lift force $L(t)$ ကို သုံးသပ်ကြည့်ကြပါစို့။ ၎င်းကို အောက်ပါ build-up formula ဖြင့် ဖော်ပြထားပါသည်-
 
 $$
 L = L_\mathrm{basic} \big(\alpha_\mathrm{B},\phi_\mathrm{hyst}\big) + \Delta L \big(\delta_\mathrm{flap}\big) + \Delta L \big(\delta_\mathrm{e}\big) + \Delta L \big(\dot{\alpha}_\mathrm{B}\big) + \Delta L \big( q \big)
 \label{eq:Build:Up:Formula:Lift}
 $$
 
-where $\alpha_\mathrm{B}$, $\delta_\mathrm{flap}$, $\delta_\mathrm{e}$, $\dot{\alpha}_\mathrm{B}$ and $q$ are the well-known aircraft state variables. The non-dimensional scalar $\phi_\mathrm{hyst}$ is usually equal to 0 and becomes 1 at high angles of attack (near stall situations, when aerodynamic hysteresis effects are modeled).
+ဤနေရာတွင် $\alpha_\mathrm{B}$, $\delta_\mathrm{flap}$, $\delta_\mathrm{e}$, $\dot{\alpha}_\mathrm{B}$ နှင့် $q$ တို့သည် လူသိများသော လေယာဉ် state variable များ ဖြစ်ကြပါသည်။ Non-dimensional scalar ဖြစ်သော $\phi_\mathrm{hyst}$ သည် ပုံမှန်အားဖြင့် 0 ဖြစ်ပြီး angle of attack မြင့်မားသောအခါ (aerodynamic hysteresis effect များကို model လုပ်ထားသော stall အနီးအနား အခြေအနေများတွင်) 1 ဖြစ်လာပါသည်။
 
-The term $L_\mathrm{basic} \big(\alpha_\mathrm{B},\phi_\mathrm{hyst}\big)$ in ($\ref{eq:Build:Up:Formula:Lift}$) is called the “basic” contribution to the build-up and is dependent on the angle of attack. We know that increasing the angle of attack increases lift — up to a point. Lift force is traditionally defined as the product of filght dynamic pressure (“qbar”, $\bar{q}$, or $\bar{q}_\infty$ for aerodynamicists), wing area ($S_\mathrm{W}$ or simply $S$), and lift coefficient ($C_L$). In this case, the lift coefficient is determined via a lookup table, using $\alpha_\mathrm{B}$ and $\phi_\mathrm{hyst}$ as an index into the table:
+($\ref{eq:Build:Up:Formula:Lift}$) ရှိ $L_\mathrm{basic} \big(\alpha_\mathrm{B},\phi_\mathrm{hyst}\big)$ term ကို build-up ၏ “basic” ပံ့ပိုးမှု ဟု ခေါ်ပြီး angle of attack ပေါ်တွင် မူတည်ပါသည်။ Angle of attack တိုးလာခြင်းက lift ကို တိုးစေကြောင်း ကျွန်ုပ်တို့ သိရှိထားပါသည် — အဆင့်တစ်ခုအထိသာ။ Lift force ကို ဓလေ့အားဖြင့် flight dynamic pressure (“qbar”, $\bar{q}$, သို့မဟုတ် aerodynamicist များအတွက် $\bar{q}_\infty$), wing area ($S_\mathrm{W}$ သို့မဟုတ် ရိုးရှင်းစွာ $S$), နှင့် lift coefficient ($C_L$) တို့၏ မြှောက်ရလဒ်အဖြစ် သတ်မှတ်ထားပါသည်။ ဤကိစ္စတွင်၊ lift coefficient ကို $\alpha_\mathrm{B}$ နှင့် $\phi_\mathrm{hyst}$ ကို table ထဲသို့ index အဖြစ် အသုံးပြု၍ lookup table တစ်ခုမှတစ်ဆင့် ဆုံးဖြတ်ပါသည်-
 
 ```xml
 <function name="aero/force/lift_from_alpha">
@@ -117,41 +116,42 @@ The term $L_\mathrm{basic} \big(\alpha_\mathrm{B},\phi_\mathrm{hyst}\big)$ in ($
 </function>
 ```
 
-The basic lift coefficient
+Basic lift coefficient
 
 $$
 C_{L,\mathrm{basic}} = \frac{L_\mathrm{basic} \big(\alpha_\mathrm{B},\phi_\mathrm{hyst}\big) }{\bar{q} S}
 \label{eq:Build:Up:Formula:Lift:Coefficient}
 $$
 
-is plotted below as a function of $\alpha_\mathrm{B}$ and $\phi_\mathrm{hyst}$.
+ကို $\alpha_\mathrm{B}$ နှင့် $\phi_\mathrm{hyst}$ ၏ function အဖြစ် အောက်တွင် plot ဆွဲပြထားပါသည်။
 
 <figure markdown>
   ![CL Basic](../../assets/img/c172_CL_basic.png){: .center width="70%" }
   <p markdown="span">
-	The plotted function of two variables $C_{L,\mathrm{basic}}\big(\alpha_\mathrm{B},\phi_\mathrm{hyst}\big)$ corresponding to the tabular function named 'aero/coefficient/CLwbh' in the aerodynamic model of c172p.
+	c172p ၏ aerodynamic model တွင် 'aero/coefficient/CLwbh' ဟု အမည်ပေးထားသော tabular function နှင့် သက်ဆိုင်သည့် variable နှစ်ခု $C_{L,\mathrm{basic}}\big(\alpha_\mathrm{B},\phi_\mathrm{hyst}\big)$ ၏ plot လုပ်ထားသော function။
   </p>
 </figure>
 
 !!! note "TODO"
 
-    Complete subsection.
+    Subsection ကို ပြည့်စုံစွာ ဖြည့်စွက်ရန်။
 
 ---
 
 <figure markdown>
   ![CL Basic](../../assets/img/c172_CD_basic.png){: .center width="70%" }
   <p markdown="span">
-	The plotted function of two variables $C_{D,\mathrm{basic}}\big(\alpha_\mathrm{B},\delta_\mathrm{flap}\big)$ corresponding to the tabular function named 'aero/coefficient/CDwbh' in the aerodynamic model of c172p.
+	c172p ၏ aerodynamic model တွင် 'aero/coefficient/CDwbh' ဟု အမည်ပေးထားသော tabular function နှင့် သက်ဆိုင်သည့် variable နှစ်ခု $C_{D,\mathrm{basic}}\big(\alpha_\mathrm{B},\delta_\mathrm{flap}\big)$ ၏ plot လုပ်ထားသော function။
   </p>
 </figure>
 
 !!! note "TODO"
 
-    Complete the following subsections.
+    အောက်ပါ subsection များကို ပြည့်စုံစွာ ဖြည့်စွက်ရန်။
 
-## Propulsion
+## Propulsion (တွန်းအားစနစ်)
 
-## Weight
+## Weight (အလေးချိန်)
 
-## Ground Contact
+## Ground Contact (မြေပြင်ထိတွေ့မှု)
+

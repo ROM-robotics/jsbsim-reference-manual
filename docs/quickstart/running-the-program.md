@@ -1,19 +1,19 @@
 ---
-title: Running the program
-description: Running the JSBSim application.
+title: Program ကို Run ခြင်း
+description: JSBSim application ကို run ခြင်း။
 tags:
   - quickstart
 ---
 
-# Running the program
+# Program ကို Run ခြင်း
 
-The path where the JSBSim repository is located will be called here *`<JSBSim-root-dir>`*. If you have built JSBSim from source code there will be an executable (`JSBSim` on Linux or `JSBSim.exe` on Windows) under the path `<JSBSim-root-dir>/src/` subdirectory. This is the JSBSim *standalone application*, that you might want to copy in the root directory:
+JSBSim repository တည်ရှိသော path ကို ဤနေရာတွင် *`<JSBSim-root-dir>`* ဟု ခေါ်ပါမည်။ Source code မှ JSBSim ကို build လုပ်ထားပါက `<JSBSim-root-dir>/src/` subdirectory အောက်တွင် executable file (Linux တွင် `JSBSim` သို့မဟုတ် Windows တွင် `JSBSim.exe`) တစ်ခု ရှိပါလိမ့်မည်။ ၎င်းသည် JSBSim *standalone application* ဖြစ်ပြီး၊ root directory တွင် copy ကူးထားချင်ကောင်းချင်ပါလိမ့်မည်-
 
 ```
 <JSBSim-root-dir>$ cp src/JSBSim .
 ```
 
-There may be several options specified when running the standalone JSBSim application.
+JSBSim standalone application ကို run သည့်အခါ option များစွာကို သတ်မှတ်ပေးနိုင်ပါသည်။
 
 ```
 <JSBSim-root-dir>$ JSBSim
@@ -42,7 +42,7 @@ Options:
 NOTE: There can be no spaces around the = sign when an option is followed by a filename
 ```
 
-You can run JSBSim by supplying the name of a script:
+Script တစ်ခု၏ အမည်ကို ပေးသွင်းခြင်းဖြင့် JSBSim ကို run နိုင်ပါသည်-
 
 ```
 <JSBSim-root-dir>$ JSBSim --script=scripts/c1723.xml
@@ -50,13 +50,13 @@ You can run JSBSim by supplying the name of a script:
 
 !!! note "TODO"
 
-    Complete page contents.
+    စာမျက်နှာ အကြောင်းအရာများကို ပြည့်စုံစွာ ဖြည့်စွက်ရန်။
 
 ---
 
 <figure markdown>
   ![Placeholder image](../assets/img/ac_euler_gimbal.svg){: .center width="80%" }
   <figcaption>
-	So, you want to simulate the flight of this aircraft?
+	ဒီတော့၊ ဒီလေယာဉ်ရဲ့ ပျံသန်းမှုကို simulate လုပ်ချင်ပါသလား။
   </figcaption>
 </figure>

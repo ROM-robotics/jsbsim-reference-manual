@@ -1,17 +1,17 @@
 ---
-title: Licensing
-description: Documentation contributing information.
+title: လိုင်စင်ချက်များ
+description: Documentation ပါဝင်ကူညီမှု အချက်အလက်။
 tags:
   - menu
   - contributing
 ---
 
-# Licensing
+# လိုင်စင်ချက်များ
 
-## Information for text contributors
+## စာသားဖြင့် ပါဝင်ကူညီသူများအတွက် အချက်အလက်
 
-To grow the commons of free knowledge and free culture, all users contributing to this JSBSim reference manual are required to grant broad permissions to the general public to re-distribute and re-use their contributions freely, as long as the use is attributed and the same freedom to re-use and re-distribute applies to any derivative works. Therefore, for any text you hold the copyright to, by submitting it, you agree to license it under the GNU Lesser GPL (LGPL).
+အခမဲ့ ဗဟုသုတနှင့် အခမဲ့ ယဉ်ကျေးမှု၏ ဘုံပိုင်ဆိုင်မှု (commons) ကို ကြီးထွားစေရန်အတွက်၊ ဤ JSBSim ရည်ညွှန်းလက်စွဲတွင် ပါဝင်ကူညီသော user အားလုံးသည် ၎င်းတို့၏ ပံ့ပိုးကူညီချက်များကို အများပြည်သူအား ပြန်လည်ဖြန့်ဝေခွင့်နှင့် ပြန်လည်အသုံးပြုခွင့်ကို လွတ်လပ်စွာ ပေးရန် လိုအပ်ပါသည်။ ၎င်းသို့ ပြုလုပ်ရာတွင် အသုံးပြုမှုကို source အဖြစ် ဖော်ပြထားရမည်ဖြစ်ပြီး၊ ရလဒ်ထွက်လာသော derivative work များအတွက်လည်း တူညီသော ပြန်လည်အသုံးပြုခွင့်နှင့် ပြန်လည်ဖြန့်ဝေခွင့် လွတ်လပ်မှု ကျင့်သုံးရပါမည်။ ထို့ကြောင့်၊ သင် copyright ပိုင်ဆိုင်သည့် မည်သည့်စာသားကိုမဆို တင်သွင်းခြင်းဖြင့်၊ ၎င်းကို GNU Lesser GPL (LGPL) အောက်တွင် လိုင်စင်ပေးရန် သင်သဘောတူပြီး ဖြစ်သည်။
 
-## Information for non-text media contributors
+## စာသားမဟုတ်သော မီဒီယာ ပါဝင်ကူညီသူများအတွက် အချက်အလက်
 
-Non-text media on the JSBSim online repositories are available under a variety of different licenses. Where not specified, non-text media are licensed under Creative Commons.
+JSBSim အွန်လိုင်း repository များပေါ်ရှိ စာသားမဟုတ်သော မီဒီယာများသည် မတူညီသော လိုင်စင် အမျိုးမျိုးအောက်တွင် ရရှိနိုင်ပါသည်။ သတ်မှတ်မထားသည့်နေရာများတွင်၊ စာသားမဟုတ်သော မီဒီယာများကို Creative Commons အောက်တွင် လိုင်စင်ပေးထားပါသည်။

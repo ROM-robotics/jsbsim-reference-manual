@@ -1,98 +1,98 @@
 ---
-title: Building the program
-description: How to build JSBSim.
+title: Program ကို Build လုပ်ခြင်း
+description: JSBSim ကို build လုပ်နည်း။
 tag:
   - quickstart
   - building
 ---
 
-# Building the program and the library
+# Program နှင့် Library ကို Build လုပ်ခြင်း
 
-JSBSim can either be built with [CMake](https://cmake.org/) or [Microsoft Visual Studio](https://www.visualstudio.com/free-developer-offers/). If you are using a Mac OSX or a Linux platform, you must use CMake. If you are a Windows user you can use either one.
+JSBSim ကို [CMake](https://cmake.org/) သို့မဟုတ် [Microsoft Visual Studio](https://www.visualstudio.com/free-developer-offers/) ဖြင့် build လုပ်နိုင်ပါသည်။ Mac OSX သို့မဟုတ် Linux platform သုံးနေပါက CMake ကို အသုံးပြုရမည် ဖြစ်ပါသည်။ Windows user တစ်ဦးဖြစ်ပါက နှစ်မျိုးစလုံးကို အသုံးပြုနိုင်ပါသည်။
 
-JSBSim is coded in standard C++98/C99 and has no dependencies, so all you need is a C/C++ compiler installed on your platform.
+JSBSim ကို standard C++98/C99 ဖြင့် ရေးသားထားပြီး dependency မရှိသောကြောင့်၊ သင့် platform တွင် C/C++ compiler တစ်ခု install လုပ်ထားရုံသာ လိုအပ်ပါသည်။
 
-## Building with CMake
+## CMake ဖြင့် Build လုပ်ခြင်း
 
-CMake is a multiplatform tool to build and test software. It can produce files to build JSBSim with GNU make or Microsoft Visual Studio. To keep the build files separated from the source code, it is preferable to build JSBSim in a separate directory.
+CMake သည် software များကို build လုပ်ရန်နှင့် test လုပ်ရန်အတွက် multiplatform tool တစ်ခု ဖြစ်ပါသည်။ ၎င်းသည် JSBSim ကို GNU make သို့မဟုတ် Microsoft Visual Studio ဖြင့် build လုပ်ရန်အတွက် file များကို ထုတ်ပေးနိုင်ပါသည်။ Build file များကို source code နှင့် သီးခြားထားရန်အတွက်၊ JSBSim ကို သီးခြား directory တစ်ခုတွင် build လုပ်ခြင်းက ပိုကောင်းပါသည်။
 ```bash
 > cd jsbsim-code
 > mkdir build
 > cd build
 ```
-CMake *does not build* software, it produces files *for* a multitude of build tools. The following commands are assuming that you are using GNU make to build JSBSim.
+CMake သည် software ကို *build မလုပ်ပါ*၊ ၎င်းသည် build tool အမျိုးမျိုးအတွက် file များကို ထုတ်ပေးခြင်းသာ ဖြစ်ပါသည်။ အောက်ပါ command များသည် JSBSim ကို build လုပ်ရန် GNU make ကို အသုံးပြုနေသည်ဟု ယူဆထားပါသည်။
 
-First, you should invoke CMake and then execute make
+ဦးစွာ CMake ကို run ပြီးနောက် make ကို run ပါ
 ```bash
 > cmake ..
 > make
 ```
 
-This will compile the various classes, and build the JSBSim application which will be located in `build/src`
+ဤသည်က class အမျိုးမျိုးကို compile လုပ်ပေးပြီး၊ `build/src` တွင် တည်ရှိမည့် JSBSim application ကို build လုပ်ပေးပါမည်။
 
-### Options passed to CMake
+### CMake သို့ ပေးပို့သော Option များ
 
-CMake can use a number of parameters to tune the build of JSBSim. Different options are presented below. You can use them independently or any combination thereof depending on your needs.
+CMake သည် JSBSim ၏ build ကို ညှိနိုင်းရန်အတွက် parameter အမျိုးမျိုးကို အသုံးပြုနိုင်ပါသည်။ မတူညီသော option များကို အောက်တွင် ဖော်ပြထားပါသည်။ သင့်လိုအပ်ချက်အလိုက် ၎င်းတို့ကို သီးသန့် (သို့) ပေါင်းစပ် အသုံးပြုနိုင်ပါသည်။
 
-#### Passing parameters to the compiler
+#### Compiler သို့ Parameter များ ပေးပို့ခြင်း
 
-If you want to set compiler options, you can pass flags to CMake to build a `Debug` version of JSBSim. JSBSim also uses C for some code, you can set options for both the C++ and the C compiler.
+Compiler option များ သတ်မှတ်လိုပါက JSBSim ၏ `Debug` version ကို build လုပ်ရန် CMake သို့ flag များ ပေးပို့နိုင်ပါသည်။ JSBSim သည် code အချို့အတွက် C ကိုလည်း အသုံးပြုထားသောကြောင့်၊ C++ နှင့် C compiler နှစ်ခုစလုံးအတွက် option များ သတ်မှတ်နိုင်ပါသည်။
 ```bash
 > cmake -DCMAKE_CXX_FLAGS_DEBUG="-g -Wall" -DCMAKE_C_FLAGS_DEBUG="-g -Wall" -DCMAKE_BUILD_TYPE=Debug ..
 > make
 ```
-Or alternatively you can build a release version of JSBSim and request GNU Make to use 4 cores to build the executable faster.
+သို့မဟုတ် အခြားနည်းလမ်းတစ်ခုအနေဖြင့် JSBSim ၏ release version ကို build လုပ်ပြီး GNU Make ကို core 4 ခုအသုံးပြု၍ executable ကို ပိုမြန်စွာ build လုပ်ရန် တောင်းဆိုနိုင်ပါသည်။
 ```bash
 > cmake -DCMAKE_CXX_FLAGS_RELEASE="-O3 -march=native -mtune=native" -DCMAKE_C_FLAGS_RELEASE="-O3 -march=native -mtune=native" -DCMAKE_BUILD_TYPE=Release ..
 > make -j4
 ```
 
-#### Building Expat or using the system library
+#### Expat ကို Build လုပ်ခြင်း သို့မဟုတ် System Library ကို အသုံးပြုခြင်း
 
-JSBSim uses the [Expat library](https://libexpat.github.io/) to read XML files. The Expat source code is provided with JSBSim source code and is compiled along with JSBSim during its build. However, if Expat is already installed on your platform you might prefer to use your system Expat library in order to avoid duplication. In that case, you should pass the `SYSTEM_EXPAT` flag to CMake:
+JSBSim သည် XML file များဖတ်ရန်အတွက် [Expat library](https://libexpat.github.io/) ကို အသုံးပြုပါသည်။ Expat ၏ source code ကို JSBSim source code နှင့်အတူ ပေးထားပြီး JSBSim build လုပ်စဉ်တွင် အတူတကွ compile လုပ်ပါသည်။ သို့သော်၊ Expat ကို သင့် platform တွင် install လုပ်ထားပြီးသားဖြစ်ပါက၊ ထပ်နေခြင်းကို ရှောင်ရှားရန်အတွက် သင့် system ၏ Expat library ကို အသုံးပြုလိုနိုင်ပါသည်။ ထိုသို့သော အခြေအနေတွင်၊ `SYSTEM_EXPAT` flag ကို CMake သို့ ပေးပို့ရပါမည်-
 ```bash
 > cmake -DSYSTEM_EXPAT=ON ..
 > make
 ```
 
-### Building the [Python](https://www.python.org/) module of JSBSim
+### JSBSim ၏ [Python](https://www.python.org/) Module ကို Build လုပ်ခြင်း
 
-A Python module of JSBSim can also be built by CMake. For that, you need [Cython](http://cython.org/) installed on your platform. CMake will automatically detect Cython and build the Python module.
+JSBSim ၏ Python module ကိုလည်း CMake ဖြင့် build လုပ်နိုင်ပါသည်။ ထိုအတွက် သင့် platform တွင် [Cython](http://cython.org/) install လုပ်ထားရန် လိုအပ်ပါသည်။ CMake သည် Cython ကို အလိုအလျောက် detect လုပ်ပြီး Python module ကို build လုပ်ပေးပါလိမ့်မည်။
 
-## Building with Microsoft Visual Studio
+## Microsoft Visual Studio ဖြင့် Build လုပ်ခြင်း
 
-From Visual Studio, you can open the project file `JSBSim.vcxproj` to open a project for JSBSim. The project file will setup Visual Studio for building JSBSim executable.
+Visual Studio မှ `JSBSim.vcxproj` project file ကို ဖွင့်၍ JSBSim အတွက် project တစ်ခု ဖွင့်နိုင်ပါသည်။ Project file သည် JSBSim executable ကို build လုပ်ရန် Visual Studio ကို setup ပေးပါလိမ့်မည်။
 
-**Note 1:** JSBSim official build tool is CMake. Visual studio project files are provided as a convenience and are not guaranteed to be up to date with the code.
+**မှတ်ချက် ၁-** JSBSim ၏ တရားဝင် build tool မှာ CMake ဖြစ်ပါသည်။ Visual Studio project file များကို အဆင်ပြေစေရန်အတွက် ပေးထားခြင်းဖြစ်ပြီး code နှင့် up to date ဖြစ်မည်ဟု အာမခံချက် မရှိပါ။
 
-**Note 2:** Since Visual Studio 2017, Microsoft has included CMake so you should be able to build JSBSim on VS2017 directly from the CMake file.
+**မှတ်ချက် ၂-** Visual Studio 2017 မှစ၍ Microsoft သည် CMake ကို ထည့်သွင်းပေးထားသောကြောင့်၊ VS2017 ပေါ်တွင် CMake file မှတစ်ဆင့် JSBSim ကို တိုက်ရိုက် build လုပ်နိုင်သင့်ပါသည်။
 
-## Testing JSBSim
+## JSBSim ကို Test လုပ်ခြင်း
 
-JSBSim comes with a test suite to automatically check that the build is correct. This test suite is located in the `tests` directory and is coded in Python so you need the [Python module for JSBSim to be built](Building the Python module of JSBSim).
+JSBSim တွင် build မှန်ကန်မှုကို အလိုအလျောက် စစ်ဆေးပေးသည့် test suite တစ်ခု ပါဝင်ပါသည်။ ဤ test suite သည် `tests` directory တွင် တည်ရှိပြီး Python ဖြင့် ရေးသားထားသောကြောင့်၊ [JSBSim ၏ Python module ကို build လုပ်ထားရန်](Building the Python module of JSBSim) လိုအပ်ပါသည်။
 
-The test suite can be run using `ctest` in the `build` directory. Tests can be run in parallel on several cores (4 in the example below) using the option `-j`
+Test suite ကို `build` directory တွင် `ctest` ကို အသုံးပြု၍ run နိုင်ပါသည်။ Test များကို `-j` option ဖြင့် core များစွာ (အောက်ပါ ဥပမာတွင် ၄ ခု) ပေါ်တွင် တစ်ပြိုင်နက် run နိုင်ပါသည်
 ```bash
 > ctest -j4
 ```
 
-## Installing JSBSim
+## JSBSim ကို Install လုပ်ခြင်း
 
-Once JSBSim is built and tested, you can install the C++ headers and library platform wide. For that, you can invoke GNU make from the `build` directory
+JSBSim ကို build လုပ်ပြီး test ပြီးသည်နှင့်၊ C++ header နှင့် library ကို platform တစ်ခုလုံးအတွက် install လုပ်နိုင်ပါသည်။ ထိုအတွက် `build` directory မှ GNU make ကို run နိုင်ပါသည်
 ```bash
 > make install
 ```
 
-## Installing the Python module
+## Python Module ကို Install လုပ်ခြင်း
 
-If you plan to install the Python module of JSBSim in addition to the C++ headers and library, then you must pass the flag `INSTALL_PYTHON_MODULE` to CMake
+C++ header နှင့် library များအပြင် JSBSim ၏ Python module ကိုပါ install လုပ်မည်ဆိုပါက၊ `INSTALL_PYTHON_MODULE` flag ကို CMake သို့ ပေးပို့ရပါမည်
 ```bash
 > cmake -DINSTALL_PYTHON_MODULE=ON ..
 > make
 > make install
 ```
 
-Alternatively, the Python module can be installed manually by invoking the following commands from the `build` directory
+အခြားနည်းလမ်းတစ်ခုအနေဖြင့်၊ Python module ကို `build` directory မှ အောက်ပါ command များကို run ခြင်းဖြင့် manual အနေဖြင့် install လုပ်နိုင်ပါသည်
 ```bash
 > cd tests
 > python setup.py install
@@ -102,6 +102,6 @@ Alternatively, the Python module can be installed manually by invoking the follo
 <figure markdown>
   ![Placeholder image](../assets/img/ac_airspeeds_recap.svg){: .center width="80%" }
   <figcaption>
-	So, you want to simulate the flight of this aircraft?
+	ဒီတော့၊ ဒီလေယာဉ်ရဲ့ ပျံသန်းမှုကို simulate လုပ်ချင်ပါသလား။
   </figcaption>
 </figure>

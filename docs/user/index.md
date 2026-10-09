@@ -3,11 +3,11 @@ title: User Manual
 description: JSBSim User Manual home page.
 ---
 
-# User manual
+# User manual (သုံးစွဲသူလမ်းညွှန်)
 
-This section explains how to use JSBSim to make simulation runs, to create aircraft models, to write scripts, and how to perform various other tasks that do not involve changes to program code in JSBSim itself.
+ဤအပိုင်းတွင် JSBSim ကို အသုံးပြု၍ simulation run များ ပြုလုပ်ခြင်း၊ လေယာဉ်မော်ဒယ်များ ဖန်တီးခြင်း၊ script များ ရေးသားခြင်းနှင့် JSBSim ၏ program code ကို ပြောင်းလဲရန် မလိုအပ်သည့် အခြားအလုပ်အမျိုးမျိုးကို ဘယ်လို လုပ်ဆောင်ရမည်ကို ရှင်းပြထားပါသည်။
 
-The JSBSim software comes with many examples of ready-to-use aircraft models. Once they become familiar with all the steps and settings needed to carry out simulations, users might want to look at these examples and learn more in detail the way that some specific models are implemented by more experienced JSBSim users.
+JSBSim software တွင် အသုံးပြုရန် အသင့်ဖြစ်သော လေယာဉ်မော်ဒယ် ဥပမာများစွာ ပါဝင်ပါသည်။ Simulation များ လုပ်ဆောင်ရန် လိုအပ်သော အဆင့်များနှင့် setting များကို ရင်းနှီးကျွမ်းဝင်လာပြီးသည်နှင့်၊ user များသည် ဤဥပမာများကို ကြည့်ပြီး၊ အတွေ့အကြုံပိုရှိသော JSBSim user များ သီးခြားမော်ဒယ်အချို့ကို မည်သို့ implement လုပ်ထားသည်ကို ပိုမိုအသေးစိတ် လေ့လာလိုနိုင်ပါသည်။
 
-*The aircraft models included in this project and distribution do not include any proprietary, sensitive, or classified data. All data is derived from textbooks (such as Stevens and Lewis "Aircraft Control and Simulation" and Sutton's "Rocket Propulsion Elements"), freely available technical reports (see: [NASA Technical Reports Server site](https://ntrs.nasa.gov) and [AIAA website](https://www.aiaa.org)), or other public data (such as the [FAA website](https://www.faa.gov)). Aircraft models included in the JSBSim distribution and with names corresponding to existing commercial or military aircraft are approximations crafted using publicly available information, and are for educational or entertainment uses only.*
+*ဤ project နှင့် distribution တွင် ပါဝင်သော လေယာဉ်မော်ဒယ်များတွင် ပိုင်ဆိုင်မှုအထူးအခွင့်ရှိသော (proprietary)၊ သတိထားရန်လိုသော (sensitive) သို့မဟုတ် လျှို့ဝှက် (classified) ဒေတာများ မပါဝင်ပါ။ ဒေတာအားလုံးကို စာအုပ်များ (ဥပမာ Stevens and Lewis ၏ "Aircraft Control and Simulation" နှင့် Sutton ၏ "Rocket Propulsion Elements")၊ အခမဲ့ ရရှိနိုင်သော နည်းပညာဆိုင်ရာ အစီရင်ခံစာများ (ကြည့်ပါ- [NASA Technical Reports Server site](https://ntrs.nasa.gov) နှင့် [AIAA website](https://www.aiaa.org))၊ သို့မဟုတ် အခြားအများသုံး ဒေတာများ (ဥပမာ [FAA website](https://www.faa.gov)) မှ ရယူထားခြင်း ဖြစ်ပါသည်။ JSBSim distribution တွင် ပါဝင်ပြီး လက်ရှိ စီးပွားရေးဆိုင်ရာ သို့မဟုတ် စစ်ရေးဆိုင်ရာ လေယာဉ်များနှင့် အမည်တူသော လေယာဉ်မော်ဒယ်များသည် အများပြည်သူ ရရှိနိုင်သော သတင်းအချက်အလက်များကို အသုံးပြု၍ ဖန်တီးထားသော ခန့်မှန်းချက် (approximation) များသာ ဖြစ်ပြီး၊ ပညာရေး သို့မဟုတ် ဖျော်ဖြေရေး ရည်ရွယ်ချက်များအတွက်သာ ဖြစ်ပါသည်။*
 

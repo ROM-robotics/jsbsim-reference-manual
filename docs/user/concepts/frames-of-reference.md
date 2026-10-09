@@ -3,182 +3,182 @@ title: Frames of reference
 description: Frames of reference in JSBSim.
 ---
 
-# Frames of Reference
+# Frames of Reference (ရည်ညွှန်းဘောင်များ)
 
-Before moving into a description of the configuration file syntax, one must understand some basic information about some of the frames of reference used (*i*) in describing the location of objects on the aircraft, (*ii*) in specifying conditions related to the position and orientation of the aircraft in space, or (*iii*) when assigning inputs for a given flight condition.
+Configuration file syntax ၏ ဖော်ပြချက်ထဲသို့ မဝင်ရောက်မီ၊ (*i*) လေယာဉ်ပေါ်ရှိ ပစ္စည်းများ၏ တည်နေရာကို ဖော်ပြရာတွင်၊ (*ii*) space ထဲရှိ လေယာဉ်၏ position နှင့် orientation နှင့် သက်ဆိုင်သော condition များကို သတ်မှတ်ရာတွင်၊ သို့မဟုတ် (*iii*) flight condition တစ်ခုအတွက် input များ သတ်မှတ်ရာတွင် အသုံးပြုသော frame of reference (ရည်ညွှန်းဘောင်) အချို့၏ အခြေခံအချက်အလက်ကို ကျွန်ုပ်တို့ နားလည်ထားရန် လိုအပ်ပါသည်။
 
-Learn more on [Wikipedia about axes conventions](https://en.wikipedia.org/wiki/Axes_conventions).
+[Wikipedia ၏ axes convention အကြောင်း](https://en.wikipedia.org/wiki/Axes_conventions) တွင် ပိုမိုလေ့လာနိုင်ပါသည်။
 
-## Structural, or "Construction" Frame
+## Structural Frame သို့မဟုတ် "Construction" Frame
 
-This frame is a common manufacturer's frame of reference and is used to define points on the aircraft such as the center of gravity, the locations of all the wheels, the pilot eye-point, point masses, thrusters, and so on. Items in the JSBSim aircraft configuration file are located using this frame.
+ဤ frame သည် manufacturer တစ်ခု၏ ဘုံ reference frame ဖြစ်ပြီး၊ center of gravity, wheel အားလုံး၏ တည်နေရာ, pilot eye-point, point mass, thruster စသည်တို့ကဲ့သို့ လေယာဉ်ပေါ်ရှိ point များကို သတ်မှတ်ရန် အသုံးပြုပါသည်။ JSBSim aircraft configuration file ထဲရှိ item များကို ဤ frame ကို အသုံးပြု၍ တည်နေရာ သတ်မှတ်ထားပါသည်။
 
-In the structural frame the X-axis runs along the fuselage length and points towards the tail, the Y-axis points from the fuselage out towards the right wing, and of course the Z-axis then is positive upwards. Typically, the origin $O_\mathrm{C}$ for this frame is near the front of the aircraft (at the tip of the nose, at the firewall for a single engine airplane, or at some distance in front of the nose). This frame is often named \(\mathcal{F}_\mathrm{C} = \{O_\mathrm{C}, x_\mathrm{C}, y_\mathrm{C}, z_\mathrm{C}\}\).
+Structural frame တွင်၊ X-axis သည် fuselage length တစ်လျှောက် run သွားပြီး tail ဆီသို့ ညွှန်ပါသည်၊ Y-axis သည် fuselage မှ right wing ဆီသို့ ညွှန်ပါသည်၊ ထို့ပြင် Z-axis သည် upward direction အတွက် positive ဖြစ်ပါသည်။ ပုံမှန်အားဖြင့်၊ ဤ frame အတွက် origin $O_\mathrm{C}$ သည် လေယာဉ်ရှေ့ဘက် (nose ၏ အစွန်းတွင်၊ single engine လေယာဉ်တစ်စင်းအတွက် firewall တွင်၊ သို့မဟုတ် nose ရှေ့တွင် ခပ်ဝေးဝေး) တွင် တည်ရှိပါသည်။ ဤ frame ကို $\mathcal{F}_\mathrm{C} = \{O_\mathrm{C}, x_\mathrm{C}, y_\mathrm{C}, z_\mathrm{C}\}$ ဟု မကြာခဏ အမည်ပေးလေ့ရှိပါသည်။
 
 <figure markdown>
   ![Construction axes](../../assets/img/ac_construction_axes.svg){: .center width="90%" }
   <p markdown="span">
-    Aircraft structural (or construction) frame of reference with origin $O_\mathrm{C}$. Besides the structural frame axes $x_\mathrm{C}$, $y_\mathrm{C}$, and $z_\mathrm{C}$, the standard body frame axes $x_\mathrm{B}$, $y_\mathrm{B}$, and $z_\mathrm{B}$ are also shown with their origin at the center of mass $G$. The pilot's eye-point is located at $P_\mathrm{EP}$.
+    Origin $O_\mathrm{C}$ ပါသော လေယာဉ် structural (သို့မဟုတ် construction) ရည်ညွှန်းဘောင်။ Structural frame axis များဖြစ်သော $x_\mathrm{C}$, $y_\mathrm{C}$, နှင့် $z_\mathrm{C}$ အပြင်၊ standard body frame axis များဖြစ်သော $x_\mathrm{B}$, $y_\mathrm{B}$, နှင့် $z_\mathrm{B}$ ကိုလည်း center of mass $G$ တွင် origin ရှိအောင် ပြသထားပါသည်။ Pilot ၏ eye-point ကို $P_\mathrm{EP}$ တွင် ထားရှိပါသည်။
   </p>
 </figure>
 
-The X-axis is typically coincident with the fuselage centerline and often is coincident with the thrust axis (for instance, in single engine propeller aircraft it passes through the propeller hub). Positions along the $x_\mathrm{C}$ axis are referred to as stations. Positions along the $z_\mathrm{C}$ axis are referred to as waterline positions. Positions along the $y_\mathrm{C}$ axis are referred to as buttline positions.
+X-axis သည် ပုံမှန်အားဖြင့် fuselage centerline နှင့် ဖြစ်တည်ပြီး thrust axis နှင့်လည်း မကြာခဏ ဖြစ်တည်ပါသည် (ဥပမာအားဖြင့်၊ single engine propeller လေယာဉ်တွင် propeller hub ကို ဖြတ်သန်းပါသည်)။ $x_\mathrm{C}$ axis တစ်လျှောက်ရှိ position များကို stations ဟု ခေါ်ပါသည်။ $z_\mathrm{C}$ axis တစ်လျှောက်ရှိ position များကို waterline positions ဟု ခေါ်ပါသည်။ $y_\mathrm{C}$ axis တစ်လျှောက်ရှိ position များကို buttline positions ဟု ခေါ်ပါသည်။
 
 <figure markdown>
   ![Construction axes](../../assets/img/c172x_blender.png){: .center width="70%" }
   <p markdown="span">
-    A screenshot taken from the 3D modeling software Blender. The scene shows a model of Cessna 172 with its structural frame $\mathcal{F}_\mathrm{C} = \{O_\mathrm{C}, x_\mathrm{C}, y_\mathrm{C}, z_\mathrm{C}\}$. The origin $O_\mathrm{C}$ in this case is located inside the cockpit, near the dashboard.
+    3D modeling software Blender မှ ရိုက်ထားသော screenshot တစ်ပုံ။ Scene တွင် ၎င်း၏ structural frame $\mathcal{F}_\mathrm{C} = \{O_\mathrm{C}, x_\mathrm{C}, y_\mathrm{C}, z_\mathrm{C}\}$ ပါသော Cessna 172 model တစ်ခု ပြသထားပါသည်။ ဤကိစ္စတွင် origin $O_\mathrm{C}$ သည် dashboard အနီး cockpit အတွင်းတွင် တည်ရှိပါသည်။
   </p>
 </figure>
 
-Note that the origin can be anywhere for a JSBSim-modeled aircraft, because JSBSim internally only uses the *relative distances* between the CG and the various objects --- not the absolute locations themselves.
+JSBSim-modeled လေယာဉ်တစ်စင်းအတွက် origin ကို မည်သည့်နေရာတွင်မဆို ထားနိုင်ကြောင်း သတိပြုပါ၊ အကြောင်းမှာ JSBSim သည် internally CG နှင့် object အမျိုးမျိုးအကြား *relative distance* ကိုသာ အသုံးပြုပြီး — absolute location များကို အသုံးမပြုသောကြောင့် ဖြစ်ပါသည်။
 
 <figure markdown>
   ![Center of gravity](../../assets/img/ac_center_of_gravity.svg){: .center width="90%" }
   <p markdown="span">
-    Center of gravity (CG) position, point $G$, determined in a construction frame.
+    Construction frame တစ်ခုတွင် ဆုံးဖြတ်ထားသော center of gravity (CG) position, point $G$။
   </p>
 </figure>
 
 <figure markdown>
   ![Ground reaction](../../assets/img/c172_ground_reaction.svg){: .center width="90%" }
   <p markdown="span">
-    Definition of ground contact points in terms of construction frame locations.
+    Construction frame တည်နေရာများ၏ အနေအထားဖြင့် ground contact point များ၏ သတ်မှတ်ချက်။
   </p>
 </figure>
 
 <figure markdown>
   ![Key locations](../../assets/img/c172_sideview.svg){: .center width="70%" }
   <p markdown="span">
-    Two key point locations $P_\mathrm{ARP}$ and $P_\mathrm{CG,EW}$ in the structural frame, respectively, he pole of aerodynamic moments and the Empty Weight CG of the airframe. The shape of the wing root profile and its chord are also sketched.
+    Structural frame ရှိ key point location နှစ်ခု $P_\mathrm{ARP}$ နှင့် $P_\mathrm{CG,EW}$၊ အသီးသီး aerodynamic moment များ၏ pole နှင့် airframe ၏ Empty Weight CG တို့ ဖြစ်ပါသည်။ Wing root profile ၏ ပုံသဏ္ဍာန်နှင့် ၎င်း၏ chord ကိုလည်း ပုံဖော်ပြထားပါသည်။
   </p>
 </figure>
 
 <figure markdown>
   ![Key locations](../../assets/img/c172_perspective_view_left.svg){: .center width="70%" }
   <p markdown="span">
-    Besides point $P_\mathrm{CG,EW}$, are represented two more significant locations, $P_\mathrm{Pilot}$ and $P_\mathrm{Right\,Pass}$, where two additional masses are concentrated, respectively, of the pilot and of the right passenger.
+    Point $P_\mathrm{CG,EW}$ အပြင်၊ အရေးကြီးသော တည်နေရာနှစ်ခုဖြစ်သည့် $P_\mathrm{Pilot}$ နှင့် $P_\mathrm{Right\,Pass}$ ကို ပြသထားပြီး၊ ဤနေရာများတွင် pilot နှင့် right passenger ၏ mass ထပ်ဆောင်းနှစ်ခု စုစည်းထားပါသည်။
   </p>
 </figure>
 
 ## Body Frame
 
-In JSBSim, the body frame is similar to the structural frame, but rotated 180 degrees about the $y_\mathrm{C}$, with the origin coincident with the CG. Typycally, the body frame is defined by knowning the position of the airplane's center of mass $G$ and the direction of the longitudinal construction axis $x_\mathrm{C}$. The axis $x_\mathrm{B}$ shall be chosen such that it originates from $G$, it is parallel to $x_\mathrm{C}$, and with a positive verse from $G$ towards the fuselage nose.
+JSBSim တွင်၊ body frame သည် structural frame နှင့် ဆင်တူသော်လည်း $y_\mathrm{C}$ ပတ်လည် 180 degree rotate လုပ်ထားပြီး origin ကို CG နှင့် ဖြစ်တည်စေထားပါသည်။ ပုံမှန်အားဖြင့်၊ body frame ကို လေယာဉ်၏ center of mass $G$ ၏ position နှင့် longitudinal construction axis $x_\mathrm{C}$ ၏ direction ကို သိရှိခြင်းဖြင့် သတ်မှတ်ပါသည်။ Axis $x_\mathrm{B}$ ကို $G$ မှ စတင်ပြီး $x_\mathrm{C}$ နှင့် parallel ဖြစ်ကာ $G$ မှ fuselage nose ဆီသို့ positive verse ရှိအောင် ရွေးချယ်ရပါမည်။
 
-The frame of body axes is often called $\mathcal{F}_\mathrm{B} = \{G, x_\mathrm{B}, y_\mathrm{B}, z_\mathrm{B}\}$. The $x_\mathrm{B}$ axis is called the *roll axis* and points forward, the $y_\mathrm{B}$ axis is called *pitch axis* and points toward the right wing, the $z_\mathrm{B}$ axis is called *yaw axis* and points towards the fuselage belly.
+Body axis frame ကို $\mathcal{F}_\mathrm{B} = \{G, x_\mathrm{B}, y_\mathrm{B}, z_\mathrm{B}\}$ ဟု မကြာခဏ ခေါ်ပါသည်။ $x_\mathrm{B}$ axis ကို *roll axis* ဟု ခေါ်ပြီး ရှေ့ဆီသို့ ညွှန်ပါသည်၊ $y_\mathrm{B}$ axis ကို *pitch axis* ဟု ခေါ်ပြီး right wing ဆီသို့ ညွှန်ပါသည်၊ $z_\mathrm{B}$ axis ကို *yaw axis* ဟု ခေါ်ပြီး fuselage ၏ ဗိုက်ဘက် (belly) ဆီသို့ ညွှန်ပါသည်။
 
 <figure markdown>
   ![Body axes](../../assets/img/ac_body_axes.svg){: .center width="90%" }
   <p markdown="span">
-    Standard aircraft body axis frame, with origin at the center of gravity $G$.
+    Center of gravity $G$ တွင် origin ရှိသော standard လေယာဉ် body axis frame။
   </p>
 </figure>
 
-In the body frame the aircraft forces and moments are summed and the resulting accelerations are integrated to get velocities.
+Body frame တွင် လေယာဉ်၏ force များနှင့် moment များကို ပေါင်းစည်းပြီး ထွက်ပေါ်လာသော acceleration များကို integrate လုပ်ကာ velocity များ ရရှိစေပါသည်။
 
-## Stability, or "Aerodynamic" Frame
+## Stability Frame သို့မဟုတ် "Aerodynamic" Frame
 
-This frame is defined according to the instantaneous orientation of the relative wind vector with respect to the airframe. If, for simplicity, the air is still with respect to the Earth (no wind), and $\boldsymbol{V}$ is the aircraft center-of-mass velocity vector with respect to the Earth-fixed observer (also named $\boldsymbol{V}_\mathrm{CM/E}$ to emphasize the relative motion), then $-\boldsymbol{V}$ is the relative wind velocity and $V = \|\boldsymbol{V}\|$ is the airspeed.
+ဤ frame ကို airframe နှင့် ဆက်စပ်သော relative wind vector ၏ instantaneous orientation ကို အခြေခံ၍ သတ်မှတ်ပါသည်။ ရိုးရှင်းစေရန် Earth နှင့် ဆက်စပ်၍ လေ ငြိမ်နေသည် (no wind) ဟု ယူဆပါက၊ $\boldsymbol{V}$ သည် Earth-fixed observer တစ်ဦးနှင့် ဆက်စပ်သော လေယာဉ် center-of-mass velocity vector ဖြစ်ပြီး (relative motion ကို မီးမောင်းထိုးပြရန် $\boldsymbol{V}_\mathrm{CM/E}$ ဟုလည်း ခေါ်ပါသည်)၊ ထို့နောက် $-\boldsymbol{V}$ သည် relative wind velocity ဖြစ်ပြီး $V = \|\boldsymbol{V}\|$ သည် airspeed ဖြစ်ပါသည်။
 
-The frame, named $\mathcal{F}_\mathrm{A} = \{ G, x_\mathrm{A}, y_\mathrm{A}, z_\mathrm{A} \}$, has the axis $x_\mathrm{A}$ that points into the relative wind vector projected onto the aircraft plane of symmetry $x_\mathrm{B} z_\mathrm{B}$. The axis $y_\mathrm{A}$ still points out the right wing and coincides with the body axis $y_\mathrm{B}$, and the axis $z_\mathrm{A}$ completes the right-hand system.
+$\mathcal{F}_\mathrm{A} = \{ G, x_\mathrm{A}, y_\mathrm{A}, z_\mathrm{A} \}$ ဟု အမည်ပေးထားသော frame တွင်၊ axis $x_\mathrm{A}$ သည် လေယာဉ် symmetry plane $x_\mathrm{B} z_\mathrm{B}$ ပေါ်သို့ project လုပ်ထားသော relative wind vector ဆီသို့ ညွှန်ပါသည်။ Axis $y_\mathrm{A}$ သည် right wing ဆီသို့ ဆက်လက် ညွှန်နေပြီး body axis $y_\mathrm{B}$ နှင့် ဖြစ်တည်ပါသည်၊ axis $z_\mathrm{A}$ ကလည်း right-hand system ကို ပြီးမြောက်စေပါသည်။
 
 <figure markdown>
   ![Alpha and beta](../../assets/img/ac_aero_axes.svg){: .center width="90%" }
   <p markdown="span">
-    Aerodynamic frame, defining the aerodynamic angles $\alpha_\mathrm{B}$ and $\beta$.
+    Aerodynamic angle $\alpha_\mathrm{B}$ နှင့် $\beta$ ကို သတ်မှတ်ပေးသော Aerodynamic frame။
   </p>
 </figure>
 
-The two axes $x_\mathrm{A}$ and $z_\mathrm{A}$ belong, by definition, to the aircraft symmetry plane, but *they can rotate during flight* because the orientation of the relative wind velocity vector $\boldsymbol{V}$ might change with respect to the vehicle. The above figure shows how the aerodynamic frame is constructed. The angle between the two axes $x_\mathrm{A}$ and $x_\mathrm{B}$ is the aircraft angle of attack $\alpha_\mathrm{B}$. The angle formed by the instantaneous direction of $\boldsymbol{V}$ and its projection on the plane $x_\mathrm{B} z_\mathrm{B}$ is the sideslip angle $\beta$.
+Axis နှစ်ခုဖြစ်သော $x_\mathrm{A}$ နှင့် $z_\mathrm{A}$ တို့သည် definition အားဖြင့် လေယာဉ် symmetry plane ထဲတွင် ပါဝင်ကြသော်လည်း၊ relative wind velocity vector $\boldsymbol{V}$ ၏ orientation သည် vehicle နှင့် ဆက်စပ်၍ ပြောင်းလဲနိုင်သောကြောင့် *ပျံသန်းမှုအတွင်း ၎င်းတို့ rotate ဖြစ်နိုင်ပါသည်*။ အထက်ပါပုံသည် aerodynamic frame ကို မည်သို့ တည်ဆောက်ထားသည်ကို ပြသထားပါသည်။ Axis နှစ်ခုဖြစ်သော $x_\mathrm{A}$ နှင့် $x_\mathrm{B}$ အကြား ထောင့်သည် လေယာဉ် angle of attack $\alpha_\mathrm{B}$ ဖြစ်ပါသည်။ $\boldsymbol{V}$ ၏ instantaneous direction နှင့် $x_\mathrm{B} z_\mathrm{B}$ plane ပေါ်သို့ ၎င်း၏ projection တို့ ဖွဲ့စည်းသော ထောင့်သည် sideslip angle $\beta$ ဖြစ်ပါသည်။
 
-This frame, called stability frame in some manuals, is also named here 'aerodynamic frame' because the projection $Z_\mathrm{A}$ of the instantaneous aerodynamic resultant force $\mathcal{F}_\mathrm{A}$ onto the axis $z_\mathrm{A}$ defines the aerodynamic lift. In particular, the lift $L$ is such that $-L$ is the component of $\mathcal{F}_\mathrm{A}$ along $z_\mathrm{A}$, i.e. $Z_\mathrm{A}=-L$.
+ဤ frame ကို manual အချို့တွင် stability frame ဟု ခေါ်ကြသော်လည်း၊ instantaneous aerodynamic resultant force $\mathcal{F}_\mathrm{A}$ ၏ axis $z_\mathrm{A}$ ပေါ်သို့ projection $Z_\mathrm{A}$ သည် aerodynamic lift ကို သတ်မှတ်ပေးသောကြောင့် ဤနေရာတွင် 'aerodynamic frame' ဟုလည်း ခေါ်ထားပါသည်။ အထူးသဖြင့်၊ lift $L$ သည် $\mathcal{F}_\mathrm{A}$ ၏ $z_\mathrm{A}$ တစ်လျှောက်ရှိ component ဖြစ်သော $-L$ ဖြစ်ကြောင်း၊ ဆိုလိုသည်မှာ $Z_\mathrm{A}=-L$ ဖြစ်ပါသည်။
 
-To visualize the above observation, consider a typical maneuver studied in flight mechanics: the zero-sideslip (or 'coordinated'), constant altitude turn at steady airspeed. In this situation the wings are banked and so is the lift. In such a turn $\mathcal{F}_\mathrm{A}$ is banked and $x_\mathrm{A}$ is kept horizontal. In general terms, the lift as a vector is always defined in the aircraft symmetry plane.
+အထက်ပါ observation ကို visualize ပြုလုပ်ရန်၊ flight mechanics တွင် လေ့လာလေ့ရှိသော maneuver တစ်ခုကို သုံးသပ်ကြည့်ပါ- zero-sideslip (သို့မဟုတ် 'coordinated') ဖြစ်ပြီး altitude ပုံသေ၊ airspeed တည်ငြိမ်သော turn (turn) တစ်ခု ဖြစ်ပါသည်။ ဤအခြေအနေတွင် wing များသည် bank လုပ်ထားပြီး lift ကလည်း banked ဖြစ်နေပါသည်။ ထို turn တွင် $\mathcal{F}_\mathrm{A}$ သည် banked ဖြစ်ပြီး $x_\mathrm{A}$ ကို horizontal အနေအထားတွင် ထားရှိပါသည်။ ယေဘုယျအားဖြင့်၊ lift ကို vector တစ်ခုအနေဖြင့် ရှုမြင်ပါက လေယာဉ် symmetry plane ထဲတွင် အမြဲတမ်း သတ်မှတ်ထားပါသည်။
 
 <figure markdown>
   ![Level turns](../../assets/img/three_d_forces_level_turn.svg){: .center width="90%" }
   <p markdown="span">
-	Banked lift in a steady coordinated turn at constant altitude. The bank angle $\phi_\mathrm{W}$ is a rotation around the relative wind velocity vector. The motion is freezed in time when the velocity vector is aligned with the North. Coordinated turn means that $\beta=0$ and constant altitude means that $x_\mathrm{A}$ is kept horizontal.
+	Altitude ပုံသေတွင် steady coordinated turn တစ်ခုတွင် banked ဖြစ်နေသော lift။ Bank angle $\phi_\mathrm{W}$ သည် relative wind velocity vector ပတ်လည် rotation တစ်ခု ဖြစ်ပါသည်။ Velocity vector သည် North နှင့် ညီထွေဖြစ်နေချိန်တွင် motion ကို freeze (အေးခဲ) ထားပါသည်။ Coordinated turn ဆိုသည်မှာ $\beta=0$ ဖြစ်ခြင်းကို ဆိုလိုပြီး constant altitude ဆိုသည်မှာ $x_\mathrm{A}$ ကို horizontal အနေအထားတွင် ထားရှိခြင်းကို ဆိုလိုပါသည်။
   </p>
 </figure>
 
-*Remark* --- In dynamic stability studies what is referred to as 'stability frame' is something slightly different from the aerodynamic frame introduced above: The stability frame in aircraft flight dynamics and stability conventions is nothing but a particular kind of body-fixed frame, defined with respect to an initial symmetrical, steady, wings-level, constant altitude flight condition. This conditions gives the direction of $x_\mathrm{S}$ (which coincides with $x_\mathrm{A}$ at that particular flight attitude). Therefore, in dynamic stability studies the stability frame, unlike the aerodynamic frame, is fixed with the vehicle.
+*မှတ်ချက်* --- Dynamic stability study များတွင် 'stability frame' ဟု ရည်ညွှန်းသောအရာသည် အထက်တွင် ဖော်ပြခဲ့သော aerodynamic frame နှင့် အနည်းငယ် ကွာခြားပါသည်- Aircraft flight dynamics နှင့် stability convention များတွင် stability frame သည် initial symmetrical, steady, wings-level, constant altitude flight condition တစ်ခုနှင့် သက်ဆိုင်၍ သတ်မှတ်ထားသော body-fixed frame အမျိုးအစားတစ်ခုမျှသာ ဖြစ်ပါသည်။ ဤ condition က $x_\mathrm{S}$ ၏ direction ကို ပေးပါသည် (ထို particular flight attitude တွင် $x_\mathrm{A}$ နှင့် ဖြစ်တည်ပါသည်)။ ထို့ကြောင့်၊ dynamic stability study များတွင် stability frame သည် aerodynamic frame နှင့် မတူဘဲ vehicle နှင့် ချိတ်ဆက်ထား (fixed) ပါသည်။
 
-In JSBSim the notion of stability frame $\mathcal{F}_\mathrm{S} = \{ G, x_\mathrm{S}, y_\mathrm{S}, z_\mathrm{S} \}$ is used to mean the aerodynamic frame.
+JSBSim တွင် stability frame $\mathcal{F}_\mathrm{S} = \{ G, x_\mathrm{S}, y_\mathrm{S}, z_\mathrm{S} \}$ ဆိုသော concept ကို aerodynamic frame ကို ဆိုလိုရန် အသုံးပြုပါသည်။
 
-## Earth-Centered Inertial Frame (ECI) and Earth-Centered Earth-Fixed Frame (ECEF)
+## Earth-Centered Inertial Frame (ECI) နှင့် Earth-Centered Earth-Fixed Frame (ECEF)
 
-The Earth-Centered Inertial frame (or simply 'inertial frame') $\mathcal{F}_\mathrm{ECI} = \{ O_\mathrm{ECI}, x_\mathrm{ECI}, y_\mathrm{ECI}, z_\mathrm{ECI} \}$ is fixed with its origin at the center of the Earth. Its cartesian axes remain fixed relative to the stars, and provide a reference frame for which the aircraft (or spacecraft) equations of motion are most simply expressed. The positive $z_\mathrm{ECI}$ axis passes through the Earth's geographic North Pole. The $x_\mathrm{ECI}$ and $y_\mathrm{ECI}$ axes lie in the equatorial plane. The axis $x_\mathrm{ECI}$ is always parallel to a line from the Sun's center of mass to Earth's position in orbit at the vernal equinox. The ECI system is shown in the next figure.
+Earth-Centered Inertial frame (သို့မဟုတ် ရိုးရှင်းစွာ 'inertial frame') $\mathcal{F}_\mathrm{ECI} = \{ O_\mathrm{ECI}, x_\mathrm{ECI}, y_\mathrm{ECI}, z_\mathrm{ECI} \}$ ၏ origin ကို Earth ၏ center တွင် fixed ထားပါသည်။ ၎င်း၏ cartesian axis များသည် star များနှင့် ဆက်စပ်၍ fixed ဖြစ်နေပြီး၊ လေယာဉ် (သို့မဟုတ် spacecraft) ၏ equations of motion ကို အရိုးရှင်းဆုံး ဖော်ပြနိုင်သော reference frame တစ်ခု ပေးပါသည်။ Positive $z_\mathrm{ECI}$ axis သည် Earth ၏ geographic North Pole ကို ဖြတ်သန်းပါသည်။ $x_\mathrm{ECI}$ နှင့် $y_\mathrm{ECI}$ axis များသည် equatorial plane ထဲတွင် တည်ရှိပါသည်။ Axis $x_\mathrm{ECI}$ သည် vernal equinox တွင် Sun ၏ center of mass မှ Earth ၏ orbit position ဆီသို့ မျဉ်းတစ်ကြောင်းနှင့် parallel အမြဲတမ်း ဖြစ်ပါသည်။ ECI system ကို နောက်ပုံတွင် ပြသထားပါသည်။
 
 <figure markdown>
   ![Inertial frame](../../assets/img/inertial_frame.svg){: .center width="60%" }
   <p markdown="span">
-	Earth-Centered Inertial (ECI) frame and Earth-Centered Earth-Fixed (ECEF) frame.
+	Earth-Centered Inertial (ECI) frame နှင့် Earth-Centered Earth-Fixed (ECEF) frame။
   </p>
 </figure>
 
-The axes of the Earth-Centered, Earth-Fixed (ECEF) frame of reference, labeled $x_\mathrm{ECEF}$, $y_\mathrm{ECEF}$, and $z_\mathrm{ECEF}$, are also depicted in the above figure. The ECEF coordinate axes remain fixed with respect to the Earth. The origin $O_\mathrm{ECEF}$ of this cartesian system, like the inertial frame, is located at the mass center of the earth. The $z_\mathrm{ECEF}$ axis also lies along the Earth's spin axis and coincides with $z_\mathrm{ECI}$. The $x_\mathrm{ECEF}$ and $y_\mathrm{ECEF}$ axes both lie in the equatorial plane, with the positive $x_\mathrm{ECEF}$ axis passing through the prime meridian (Greenwich Meridian). The ECEF frame rotates counter-clockwise about the Inertial frames $z_\mathrm{ECI}$ axis with angular velocity $\omega_\mathrm{E}$. The Earth angular rate $\omega_\mathrm{E}$ is approximately equal to $2\pi/24$ radians/hour.
+$x_\mathrm{ECEF}$, $y_\mathrm{ECEF}$, နှင့် $z_\mathrm{ECEF}$ ဟု label တပ်ထားသော Earth-Centered, Earth-Fixed (ECEF) ရည်ညွှန်းဘောင်၏ axis များကိုလည်း အထက်ပါပုံတွင် ဖော်ပြထားပါသည်။ ECEF coordinate axis များသည် Earth နှင့် ဆက်စပ်၍ fixed ဖြစ်နေပါသည်။ ဤ cartesian system ၏ origin $O_\mathrm{ECEF}$ သည် inertial frame ကဲ့သို့ပင် earth ၏ mass center တွင် တည်ရှိပါသည်။ $z_\mathrm{ECEF}$ axis သည် Earth ၏ spin axis တစ်လျှောက်တွင်လည်း တည်ရှိပြီး $z_\mathrm{ECI}$ နှင့် ဖြစ်တည်ပါသည်။ $x_\mathrm{ECEF}$ နှင့် $y_\mathrm{ECEF}$ axis နှစ်ခုစလုံးသည် equatorial plane ထဲတွင် တည်ရှိပြီး၊ positive $x_\mathrm{ECEF}$ axis သည် prime meridian (Greenwich Meridian) ကို ဖြတ်သန်းပါသည်။ ECEF frame သည် angular velocity $\omega_\mathrm{E}$ ဖြင့် Inertial frame ၏ $z_\mathrm{ECI}$ axis ပတ်လည် counter-clockwise rotate ပြုလုပ်ပါသည်။ Earth angular rate $\omega_\mathrm{E}$ သည် ခန့်မှန်းခြေအားဖြင့် $2\pi/24$ radians/hour ညီမျှပါသည်။
 
 ## North-Oriented Tangent Frames
 
-A *tangent-plane* coordinate system can be defined when a matemathical representation of Earth's surface is assumed (a *spheroid* or an approximating sphere). A plane tangent to a point of interest on the surface $O_\mathrm{E}$ is taken as a reference. A geographic system called *North-Oriented Tangent Frame* $\mathcal{F}_\mathrm{E} = \{ O_\mathrm{E}, x_\mathrm{E}, y_\mathrm{E}, z_\mathrm{E}\}$ has its origin fixed at the point of interest $O_\mathrm{E}$ and its plane $x_\mathrm{E} y_\mathrm{E}$ coincident with the tangent plane. The axis $x_\mathrm{E}$ points towards the geographic North, the axis $y_\mathrm{E}$ points towards the East. Finally, the axis $z_\mathrm{E}$ points downwards towards, parallel to the spheroid normal (It points to the center of the Earth if an approximating sphere is used instead of a spheroid). For this reason the frame $\mathcal{F}_\mathrm{E}$ is also called *tangent NED* frame (North-East-Down).
+Earth ၏ surface ကို mathematical representation (*spheroid* သို့မဟုတ် approximate လုပ်ထားသော sphere) တစ်ခုအနေဖြင့် ယူဆသည့်အခါ *tangent-plane* coordinate system တစ်ခုကို သတ်မှတ်နိုင်ပါသည်။ Surface $O_\mathrm{E}$ ပေါ်ရှိ interest point တစ်ခုနှင့် tangent ဖြစ်သော plane တစ်ခုကို reference အဖြစ် ယူပါသည်။ *North-Oriented Tangent Frame* ဟု ခေါ်သော geographic system $\mathcal{F}_\mathrm{E} = \{ O_\mathrm{E}, x_\mathrm{E}, y_\mathrm{E}, z_\mathrm{E}\}$ ၏ origin ကို interest point $O_\mathrm{E}$ တွင် fixed ထားပြီး ၎င်း၏ plane $x_\mathrm{E} y_\mathrm{E}$ ကို tangent plane နှင့် ဖြစ်တည်စေထားပါသည်။ Axis $x_\mathrm{E}$ သည် geographic North ဆီသို့ ညွှန်ပြီး၊ axis $y_\mathrm{E}$ သည် East ဆီသို့ ညွှန်ပါသည်။ နောက်ဆုံးအနေဖြင့်၊ axis $z_\mathrm{E}$ သည် spheroid normal နှင့် parallel ဖြစ်ကာ အောက်ဘက် (downward) ဆီသို့ ညွှန်ပါသည် (Spheroid အစား approximate လုပ်ထားသော sphere ကို အသုံးပြုပါက Earth ၏ center ဆီသို့ ညွှန်ပါသည်)။ ဤအကြောင်းကြောင့် frame $\mathcal{F}_\mathrm{E}$ ကို *tangent NED* frame (North-East-Down) ဟုလည်း ခေါ်ပါသည်။
 
 <figure markdown>
   ![ECI and ECEF frames](../../assets/img/earth_frames.svg){: .center width="60%" }
   <p markdown="span">
-	Earth-Centered Earth-Fixed (ECEF) frame, geografic coordinates, Tangent (T) frame, and local Vertical (V) frame.
+	Earth-Centered Earth-Fixed (ECEF) frame, geographic coordinate များ, Tangent (T) frame, နှင့် local Vertical (V) frame။
   </p>
 </figure>
 
-## Local-Vertical Local-Level Frame, or Local NED Frame
+## Local-Vertical Local-Level Frame သို့မဟုတ် Local NED Frame
 
-The local vertical frame $\mathcal{F}_\mathrm{V} = \{ G, x_\mathrm{V}, y_\mathrm{V}, z_\mathrm{V}\}$ is unrelated to the airplane's orientation in space but is only defined by its CG position with respect to some convenient Earth-fixed observer. If $G_\mathrm{GT}$ is the CG projected on the ground ('ground tracked'), the coordinate plane $x_\mathrm{V} y_\mathrm{V}$ is parallel to a plane locally tangent in $G_\mathrm{GT}$ to the Earth's surface --- i.e. the plane $x_\mathrm{E} y_\mathrm{E}$ with $O_\mathrm{E} \equiv G_\mathrm{GT}$. Then, the axis $x_\mathrm{V}$ points towards the geographic North, the axis $y_\mathrm{V}$ points towards the East. Finally, the axis $z_\mathrm{V}$ points downwards towards the center of the Earth. For this reason the frame $\mathcal{F}_\mathrm{V}$ is also called *local NED* (vehicle-carried) frame.
+Local vertical frame $\mathcal{F}_\mathrm{V} = \{ G, x_\mathrm{V}, y_\mathrm{V}, z_\mathrm{V}\}$ သည် space ထဲရှိ လေယာဉ်၏ orientation နှင့် မသက်ဆိုင်ဘဲ၊ Earth-fixed observer တစ်ဦးနှင့် ဆက်စပ်သော ၎င်း၏ CG position ဖြင့်သာ သတ်မှတ်ထားပါသည်။ $G_\mathrm{GT}$ ကို ground ပေါ်သို့ project လုပ်ထားသော CG ('ground tracked') ဟု ယူဆပါက၊ coordinate plane $x_\mathrm{V} y_\mathrm{V}$ သည် $G_\mathrm{GT}$ တွင် Earth ၏ surface ကို local tangent ဖြစ်သော plane တစ်ခုနှင့် parallel ဖြစ်ပါသည် --- ဆိုလိုသည်မှာ $O_\mathrm{E} \equiv G_\mathrm{GT}$ ဖြစ်သော plane $x_\mathrm{E} y_\mathrm{E}$ ဖြစ်ပါသည်။ ထို့နောက်၊ axis $x_\mathrm{V}$ သည် geographic North ဆီသို့ ညွှန်ပြီး၊ axis $y_\mathrm{V}$ သည် East ဆီသို့ ညွှန်ပါသည်။ နောက်ဆုံးအနေဖြင့်၊ axis $z_\mathrm{V}$ သည် Earth ၏ center ဆီသို့ အောက်ဘက်ဆီသို့ ညွှန်ပါသည်။ ဤအကြောင်းကြောင့် frame $\mathcal{F}_\mathrm{V}$ ကို *local NED* (vehicle-carried) frame ဟုလည်း ခေါ်ပါသည်။
 
 <figure markdown>
   ![Local vertical axes](../../assets/img/ac_local_vertical_axes.svg){: .center width="90%" }
   <p markdown="span">
-	Aircraft body frame and local vertical frame (NED frame). The aircraft Euler angles are also shown: the heading angle $\psi$ (negative in the picture), the elevation angle $\theta$, and the roll angle $\phi$.
+	လေယာဉ် body frame နှင့် local vertical frame (NED frame)။ လေယာဉ် Euler angle များကိုလည်း ပြသထားပါသည်- heading angle $\psi$ (ပုံတွင် negative ဖြစ်နေသည်)၊ elevation angle $\theta$၊ နှင့် roll angle $\phi$။
   </p>
 </figure>
 
-The NED convention ensures that the aircraft weight is a force with components $(0,0,mg)$ in the frame $\mathcal{F}_\mathrm{V}$, where $m$ is the airplane's mass and $g$ is the gravitational acceleration.
+NED convention က လေယာဉ်၏ weight သည် frame $\mathcal{F}_\mathrm{V}$ တွင် $(0,0,mg)$ component ရှိသော force တစ်ခု ဖြစ်ကြောင်း သေချာစေပါသည်၊ ဤနေရာတွင် $m$ သည် လေယာဉ်၏ mass ဖြစ်ပြီး $g$ သည် gravitational acceleration ဖြစ်ပါသည်။
 
-The above figure shows an aircraft with the two frames $\mathcal{F}_\mathrm{V}$ and $\mathcal{F}_\mathrm{B}$. The Euler angles that define the body frame orientation with respect to the local NED frame are the *aircraft Euler angles*. For atmospheric flight vehicles the sequence of rotations used to define the Euler angles is '3-2-1'. This defines the *heading* angle $\psi$, the *elevation* angle $\theta$, and the *roll* angle $\phi$ with respect to an observer fixed with the Earth.
+အထက်ပါပုံတွင် frame နှစ်ခု $\mathcal{F}_\mathrm{V}$ နှင့် $\mathcal{F}_\mathrm{B}$ ပါသော လေယာဉ်တစ်စင်းကို ပြသထားပါသည်။ Local NED frame နှင့် ဆက်စပ်၍ body frame ၏ orientation ကို သတ်မှတ်ပေးသော Euler angle များကို *လေယာဉ် Euler angle* ဟု ခေါ်ပါသည်။ Atmospheric flight vehicle များအတွက် Euler angle များကို သတ်မှတ်ရန် အသုံးပြုသော rotation sequence မှာ '3-2-1' ဖြစ်ပါသည်။ ဤသည်က Earth နှင့် ဆက်စပ်သော observer တစ်ဦးနှင့် ဆက်နွယ်၍ *heading* angle $\psi$, *elevation* angle $\theta$, နှင့် *roll* angle $\phi$ တို့ကို သတ်မှတ်ပေးပါသည်။
 
 <figure markdown>
   ![Euler gimbal](../../assets/img/ac_euler_gimbal.svg){: .center width="60%" }
   <p markdown="span">
-	Euler angle sequence for an aircraft. The frame $\mathcal{F}_\mathrm{E} = \{ O_\mathrm{E}, x_\mathrm{E}, y_\mathrm{E}, z_\mathrm{E}\}$ is an Earth-fixed NED coordinate system, with origin the $O_\mathrm{E}$ somewhere on the ground (or at see level) and the plane $x_\mathrm{E} y_\mathrm{E}$ tangent to the Earth surface. If the ground track point $G_\mathrm{GT}$ is not too far from $O_\mathrm{E}$, the Earth frame $\mathcal{F}_\mathrm{E}$ axes are parallel to those of the local NED frame $\mathcal{F}_\mathrm{V} = \{ G, x_\mathrm{V}, y_\mathrm{V}, z_\mathrm{V}\}$.
+	လေယာဉ်တစ်စင်းအတွက် Euler angle sequence။ Frame $\mathcal{F}_\mathrm{E} = \{ O_\mathrm{E}, x_\mathrm{E}, y_\mathrm{E}, z_\mathrm{E}\}$ သည် Earth-fixed NED coordinate system တစ်ခု ဖြစ်ပြီး၊ origin $O_\mathrm{E}$ ကို ground ပေါ်တွင် (သို့မဟုတ် sea level တွင်) တစ်နေရာရာတွင် ထားရှိကာ plane $x_\mathrm{E} y_\mathrm{E}$ ကို Earth surface နှင့် tangent ဖြစ်စေထားပါသည်။ Ground track point $G_\mathrm{GT}$ သည် $O_\mathrm{E}$ နှင့် သိပ်မဝေးလှပါက၊ Earth frame $\mathcal{F}_\mathrm{E}$ axis များသည် local NED frame $\mathcal{F}_\mathrm{V} = \{ G, x_\mathrm{V}, y_\mathrm{V}, z_\mathrm{V}\}$ ၏ axis များနှင့် parallel ဖြစ်ပါသည်။
   </p>
 </figure>
 
 ## Wind Frame
 
-Besides the lift, the instantaneous aerodynamic resultant force vector $\mathcal{F}_\mathrm{A}$ has two more components in a frame of reference of which $z_\mathrm{A}$ is the third axis. This frame is called *wind frame* $\mathcal{F}_\mathrm{W} = \{ G, x_\mathrm{W}, y_\mathrm{W}, z_\mathrm{W}\}$.
+Lift အပြင်၊ instantaneous aerodynamic resultant force vector $\mathcal{F}_\mathrm{A}$ တွင် $z_\mathrm{A}$ သည် တတိယ axis ဖြစ်သော ရည်ညွှန်းဘောင်တစ်ခုတွင် component နှစ်ခု ထပ်မံပါရှိပါသည်။ ဤ frame ကို *wind frame* $\mathcal{F}_\mathrm{W} = \{ G, x_\mathrm{W}, y_\mathrm{W}, z_\mathrm{W}\}$ ဟု ခေါ်ပါသည်။
 
-The wind frame is defined by taking the $x_\mathrm{W}$ axis along the relative wind with a positive verse in the direction of motion. This means that $x_\mathrm{W}$ is superimposed to the vector $\boldsymbol{V}$. The third axis of $\mathcal{F}_\mathrm{W}$ is taken along the lift line of action, i.e. $z_\mathrm{W} \equiv z_\mathrm{A}$. Finally, the second axis $y_\mathrm{W}$ is chosen in order to complete the right-handed triad. The wind frame has its third axis constantly in the airframe plane of symmetry (also called the 'reference plane'). All the three wind axes rotate with respect to the body axes because of the changing attitude of the aircraft with respect to the relative wind $-\boldsymbol{V}$.
+Wind frame ကို $x_\mathrm{W}$ axis ကို relative wind တစ်လျှောက် motion direction ဖြင့် positive verse ရှိအောင် ယူ၍ သတ်မှတ်ပါသည်။ ဆိုလိုသည်မှာ $x_\mathrm{W}$ သည် vector $\boldsymbol{V}$ နှင့် superimpose ဖြစ်ပါသည်။ $\mathcal{F}_\mathrm{W}$ ၏ တတိယ axis ကို lift line of action တစ်လျှောက်ယူပါသည်၊ ဆိုလိုသည်မှာ $z_\mathrm{W} \equiv z_\mathrm{A}$ ဖြစ်ပါသည်။ နောက်ဆုံးအနေဖြင့်၊ ဒုတိယ axis $y_\mathrm{W}$ ကို right-handed triad ပြီးမြောက်စေရန် ရွေးချယ်ပါသည်။ Wind frame ၏ တတိယ axis သည် airframe symmetry plane ('reference plane' ဟုလည်း ခေါ်) ထဲတွင် အမြဲတမ်း ရှိနေပါသည်။ Wind axis သုံးခုလုံးသည် relative wind $-\boldsymbol{V}$ နှင့် ဆက်စပ်၍ လေယာဉ်၏ attitude ပြောင်းလဲနေမှုကြောင့် body axis များနှင့် ဆက်စပ်၍ rotate ဖြစ်ပါသည်။
 
-The component $X_\mathrm{W}$ of the force vector $\mathcal{F}_\mathrm{A}$ along the direction of $\boldsymbol{V}$ defines the aerodynamic drag: The drag $D$ is such that $X_\mathrm{W}=-D$. In presence of a nonzero sideslip angle $\beta$, a third nonzero component of $\mathcal{F}_\mathrm{A}$ arises along the lateral axis $y_\mathrm{W}$, i.e. the side force component $Y_\mathrm{W}$.
+$\boldsymbol{V}$ direction တစ်လျှောက် force vector $\mathcal{F}_\mathrm{A}$ ၏ component $X_\mathrm{W}$ သည် aerodynamic drag ကို သတ်မှတ်ပေးပါသည်- Drag $D$ သည် $X_\mathrm{W}=-D$ ဖြစ်ပါသည်။ Sideslip angle $\beta$ သုညမဟုတ်သည့်အခါ၊ lateral axis $y_\mathrm{W}$ တစ်လျှောက် $\mathcal{F}_\mathrm{A}$ ၏ တတိယ component သုညမဟုတ်သည့်အရာ ဖြစ်ပေါ်လာပါသည်၊ ဆိုလိုသည်မှာ side force component $Y_\mathrm{W}$ ဖြစ်ပါသည်။
 
-When the sideslip angle $\beta$ is zero, the wind frame and the aerodynamic frame are coincident. Only in this circumstance $y_\mathrm{W}$, being coincident with $y_\mathrm{A}$ and $y_\mathrm{B}$, is normal to the reference plane $x_\mathrm{B} z_\mathrm{B}$.
+Sideslip angle $\beta$ သုညဖြစ်သည့်အခါ၊ wind frame နှင့် aerodynamic frame တို့ ဖြစ်တည်ပါသည်။ ဤအခြေအနေတွင်သာ $y_\mathrm{W}$ သည် $y_\mathrm{A}$ နှင့် $y_\mathrm{B}$ နှင့် ဖြစ်တည်နေသောကြောင့် reference plane $x_\mathrm{B} z_\mathrm{B}$ နှင့် normal ဖြစ်ပါသည်။
 
-The figure below shows the standard frames of reference for an aircraft in climbing flight in calm air. The wind frame $\mathcal{F}_\mathrm{W}$ can be made superimposed to the aerodynamic frame $\mathcal{F}_\mathrm{A}$ when rotated around $z_\mathrm{W}$ of the angle $-\beta$.
+အောက်ပါပုံသည် calm air တွင် climbing flight ပြုနေသော လေယာဉ်တစ်စင်းအတွက် standard ရည်ညွှန်းဘောင်များကို ပြသထားပါသည်။ Wind frame $\mathcal{F}_\mathrm{W}$ ကို ထောင့် $-\beta$ ဖြင့် $z_\mathrm{W}$ ပတ်လည် rotate လုပ်သည့်အခါ aerodynamic frame $\mathcal{F}_\mathrm{A}$ နှင့် superimpose ဖြစ်စေနိုင်ပါသည်။
 
 <figure markdown>
   ![3D defs](../../assets/img/three_d_definitions.svg){: .center width="90%" }
   <p markdown="span">
-	Standard frames of reference and aircraft in climbing flight in calm air. The CG velocity vector $\boldsymbol{V}$ forms the flight path angle $\gamma$ with the horizontal plane. The standard three aerodynamic resultant force components $D$, $L$ and $Y_\mathrm{A}$ are also shown.
+	Calm air တွင် climbing flight ပြုနေသော လေယာဉ်တစ်စင်း၏ standard ရည်ညွှန်းဘောင်များ။ CG velocity vector $\boldsymbol{V}$ သည် horizontal plane နှင့် flight path angle $\gamma$ ကို ဖွဲ့စည်းပါသည်။ Standard aerodynamic resultant force component သုံးခုဖြစ်သော $D$, $L$ နှင့် $Y_\mathrm{A}$ ကိုလည်း ပြသထားပါသည်။
   </p>
 </figure>
 
-Consequently, the wind frame $\mathcal{F}_\mathrm{W}$ can be superimposed to the body frame $\mathcal{F}_\mathrm{B}$ when rotated first around $z_\mathrm{W}$ of the angle $-\beta$ then around the axis $y_\mathrm{A}$ of the angle $\alpha_\mathrm{B}$:
+ဆက်လက်၍၊ wind frame $\mathcal{F}_\mathrm{W}$ ကို ဦးစွာ ထောင့် $-\beta$ ဖြင့် $z_\mathrm{W}$ ပတ်လည် rotate လုပ်ပြီး ထို့နောက် ထောင့် $\alpha_\mathrm{B}$ ဖြင့် axis $y_\mathrm{A}$ ပတ်လည် rotate လုပ်သည့်အခါ body frame $\mathcal{F}_\mathrm{B}$ နှင့် superimpose ဖြစ်စေနိုင်ပါသည်-
 
 $$
 \mathcal{F}_\mathrm{W} \stackrel{-\beta \, \curvearrowright \, z_\mathrm{W}}{ \longrightarrow } \mathcal{F}_\mathrm{A} \stackrel{\alpha_\mathrm{B} \, \curvearrowright \, y_\mathrm{A}}{ \longrightarrow } \mathcal{F}_\mathrm{B}
 \label{eq:FW:To:FB}
 $$
 
-The components of the aerodynamic resultant force in body axes are then expressed as follows:
+Body axis များတွင် aerodynamic resultant force ၏ component များကို ထို့နောက် အောက်ပါအတိုင်း ဖော်ပြနိုင်ပါသည်-
 
 $$
 \left\{\begin{matrix}
@@ -200,4 +200,5 @@ $$
 \label{eq:DYL:To:XYZB}  
 $$
 
-in terms of drag, side force and lift.
+Drag, side force နှင့် lift တို့ဖြင့် ဖော်ပြထားပါသည်။
+

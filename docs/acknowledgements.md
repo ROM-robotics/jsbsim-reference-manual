@@ -1,34 +1,34 @@
 ---
-title: Acknowledgements
-description: Thanks to JSBSim contributors, developers, & users.
+title: ကျေးဇူးတင်လွှာ
+description: JSBSim ပါဝင်ကူညီသူများ၊ developer များနှင့် user များအား ကျေးဇူးတင်ခြင်း။
 tags:
   - about
 ---
 
-# Acknowledgements
+# ကျေးဇူးတင်လွှာ
 
-This software is the result of work done by many people over the years.
+ဤဆော့ဖ်ဝဲသည် နှစ်ပေါင်းများစွာအတွင်း လူများစွာ၏ ကြိုးပမ်းအားထုတ်မှုများ၏ ရလဒ်ဖြစ်ပါသည်။
 
-Tony Peden has been contributing to the growth of JSBSim almost from day 1. He is responsible for the initialization and trimming code. Tony also incorporated David Megginson's property system into JSBSim. Tony hails from Ohio State University, with a degree in Aero and Astronautical Engineering.
+Tony Peden သည် JSBSim ၏ ကနဦးနေ့များမှစ၍ ကြီးထွားတိုးတက်မှုတွင် ပါဝင်ကူညီခဲ့သူ ဖြစ်ပါသည်။ သူသည် initialization နှင့် trimming code များကို တာဝန်ယူထားသူ ဖြစ်ပါသည်။ Tony သည် David Megginson ၏ property system ကိုပါ JSBSim ထဲသို့ ပေါင်းစပ်ထည့်သွင်းခဲ့ပါသည်။ Tony သည် Ohio State University မှ Aero and Astronautical Engineering ဘွဲ့ရရှိထားသူ ဖြစ်ပါသည်။
 
-David Culp developed the turbine model for JSBSim, and crafted several aircraft models that use it including the T-38. David has experience flying many types of military and commercial aircraft, including the T-38, and the Boeing 707, 727, 737, 757, 767, the SGS 2-32, and the OV-10. David is an aerospace engineer, a graduate from the U.S. Air Force Academy.
+David Culp သည် JSBSim အတွက် turbine model ကို ဖန်တီးခဲ့ပြီး၊ ၎င်းကို အသုံးပြုသော လေယာဉ်မော်ဒယ်များစွာ (T-38 အပါအဝင်) ကို တည်ဆောက်ခဲ့ပါသည်။ David သည် T-38၊ Boeing 707၊ 727၊ 737၊ 757၊ 767၊ SGS 2-32 နှင့် OV-10 အပါအဝင် စစ်ရေးနှင့် စီးပွားရေးလေယာဉ်အမျိုးအစားများစွာကို ပျံသန်းဖူးသော အတွေ့အကြုံရှိသူ ဖြစ်ပါသည်။ David သည် အာကာသအင်ဂျင်နီယာတစ်ဦးဖြစ်ပြီး U.S. Air Force Academy မှ ဘွဲ့ရရှိထားသူ ဖြစ်ပါသည်။
 
-David Megginson came from a long involvement as a core FlightGear developer. David correlated our flight dynamics with his
-general aviation flying experience to aid in maximum realism, among other things. David designed the property system that both FlightGear and JSBSim use. He is well known for his contributions to XML technology, and wrote the easyXML parser that both FlightGear and JSBSim use.
+David Megginson သည် FlightGear ၏ core developer တစ်ဦးအဖြစ် ကြာရှည်ပါဝင်ခဲ့သူ ဖြစ်ပါသည်။ David သည် အများဆုံး လက်တွေ့ဆန်မှု ရရှိစေရန်အတွက် သူ၏
+general aviation ပျံသန်းမှု အတွေ့အကြုံဖြင့် ကျွန်ုပ်တို့၏ flight dynamics ကို ချိန်ညှိပေးခဲ့ပါသည်။ David သည် FlightGear နှင့် JSBSim နှစ်ခုစလုံး အသုံးပြုသော property system ကို ဒီဇိုင်းရေးဆွဲခဲ့ပါသည်။ သူသည် XML technology အတွက် ပံ့ပိုးကူညီမှုများဖြင့် လူသိများပြီး FlightGear နှင့် JSBSim နှစ်ခုစလုံး အသုံးပြုသော easyXML parser ကို ရေးသားခဲ့ပါသည်။
 
-Erik Hofman has done a bit of everything, hunting down aircraft data, creating flight models (F-16), and performing some programming. He also tests for IRIX compatibility. Erik has a degree in Computer Science.
+Erik Hofman သည် လေယာဉ်ဒေတာများ ရှာဖွေခြင်း၊ flight model များ (F-16) ဖန်တီးခြင်းနှင့် programming အချို့ကို လုပ်ဆောင်ခြင်းအပါအဝင် အလုပ်အမျိုးမျိုးကို လုပ်ဆောင်ခဲ့ပါသည်။ သူသည် IRIX compatibility ကိုလည်း စမ်းသပ်ပေးပါသည်။ Erik သည် Computer Science ဘွဲ့ရရှိထားသူ ဖြစ်ပါသည်။
 
-Mathias Frölich added a versatile per-gear ground elevation capability, and many other things. Mathias is a mathematician from Germany.
+Mathias Frölich သည် gear တစ်ခုချင်းစီအတွက် ကွဲပြားနိုင်သော ground elevation စွမ်းရည်နှင့် အခြားအရာများစွာကို ထပ်ဖြည့်ခဲ့ပါသည်။ Mathias သည် ဂျာမနီနိုင်ငံမှ သင်္ချာပညာရှင် ဖြစ်ပါသည်။
 
-Agostino De Marco has created a broadly capable cost/penalty trim analysis feature for JSBSim, and has used
-JSBSim by itself and together with FlightGear at the University of Naples.
+Agostino De Marco သည် JSBSim အတွက် ကျယ်ပြန့်စွာ အသုံးဝင်သော cost/penalty trim analysis feature ကို ဖန်တီးခဲ့ပြီး၊
+University of Naples တွင် JSBSim ကို တစ်ခုတည်းအနေဖြင့်ရော FlightGear နှင့်အတူပါ အသုံးပြုခဲ့ပါသည်။
 
-David Luff from the United Kingdom provided the original piston engine model. Ron Jensen has steadily refined it.
+United Kingdom မှ David Luff သည် မူလ piston engine model ကို ပံ့ပိုးပေးခဲ့ပါသည်။ Ron Jensen သည် ၎င်းကို တစ်ဆက်တည်း တိုးတက်ကောင်းမွန်အောင် ပြုလုပ်ပေးခဲ့ပါသည်။
 
-Engineers with many years of simulation experience, Lee Duke and Bill Galbraith have contributed suggestions and ideas that have improved JSBSim.
+နှစ်ပေါင်းများစွာ simulation အတွေ့အကြုံရှိသော အင်ဂျင်နီယာများဖြစ်သည့် Lee Duke နှင့် Bill Galbraith တို့သည် JSBSim ကို ပိုမိုကောင်းမွန်စေသော အကြံပြုချက်များနှင့် အိုင်ဒီယာများကို ပံ့ပိုးပေးခဲ့ပါသည်။
 
-Bruce Jackson from NASA Langley Research Center – who has been involved in the development and use of a variety of simulations for many years – has been supportive and helpful, and the simulation code he wrote in C many years ago, (“LaRCSim”) was instructive in the early development of JSBSim.
+NASA Langley Research Center မှ Bruce Jackson – နှစ်ပေါင်းများစွာ simulation အမျိုးမျိုးကို ဖန်တီးအသုံးပြုမှုတွင် ပါဝင်ခဲ့သူ – သည် အထောက်အပံ့ပေးခြင်းနှင့် အကူအညီပေးခြင်းများ ပြုလုပ်ခဲ့ပြီး၊ သူသည် နှစ်ပေါင်းများစွာကြာခဲ့သော C ဘာသာစကားဖြင့် ရေးသားခဲ့သော simulation code (“LaRCSim”) သည် JSBSim ၏ အစောပိုင်း ဖွံ့ဖြိုးတိုးတက်မှုတွင် အသိပညာပေးမှု ဖြစ်ခဲ့ပါသည်။
 
-Curt Olson, who coordinates the development of FlightGear and some of its constituent parts (SimGear) has been a great help over the years in countless discussions of simulation, control theory, and many other topics. Working with the FlightGear community has made JSBSim a better tool.
+FlightGear နှင့် ၎င်း၏ အစိတ်အပိုင်းအချို့ (SimGear) ၏ ဖွံ့ဖြိုးတိုးတက်မှုကို ညှိနှိုင်းဆောင်ရွက်သူ Curt Olson သည် simulation၊ control theory နှင့် အခြားအကြောင်းအရာများစွာကို ရေတွက်မကုန်အောင် ဆွေးနွေးမှုများတွင် နှစ်ပေါင်းများစွာ အထောက်အကူပြုခဲ့ပါသည်။ FlightGear အသိုင်းအဝိုင်းနှင့်အတူ လုပ်ဆောင်ခြင်းက JSBSim ကို ပိုမိုကောင်းမွန်သော ကိရိယာတစ်ခု ဖြစ်စေခဲ့ပါသည်။
 
-Finally, the user and developer community has worked well to bring JSBSim to where it is today. Thanks are due to anyone who has ever taken the time to report a bug or to ask for a feature.
+နောက်ဆုံးအနေဖြင့်၊ user နှင့် developer အသိုင်းအဝိုင်းသည် ယနေ့ JSBSim ရောက်ရှိနေသည့် အဆင့်အထိ ဆောင်ရွက်ပေးနိုင်ခဲ့ကြပါသည်။ bug တစ်ခု သတင်းပို့ရန် သို့မဟုတ် feature တစ်ခု တောင်းဆိုရန် အချိန်ပေးခဲ့ဖူးသူ မည်သူ့ကိုမဆို ကျေးဇူးတင်ရှိပါသည်။

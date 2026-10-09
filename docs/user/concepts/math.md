@@ -3,49 +3,48 @@ title: Math
 description: Applying math concepts in JSBSim.
 ---
 
-# Math
+# Math (သင်္ချာ)
 
-## Functions
+## Functions (Function များ)
 
-The function specification in JSBSim is a powerful and versatile resource that allows algebraic functions to be defined in a JSBSim configuration file. The function syntax is similar in concept to MathML (Mathematical Markup Language, [http://www.w3.org/Math/](http://www.w3.org/Math/)), but it is simpler and more terse.
+JSBSim တွင် function specification သည် JSBSim configuration file တစ်ခုအတွင်း algebraic function များကို သတ်မှတ်နိုင်သော စွမ်းအားကောင်းပြီး versatile ဖြစ်သော resource တစ်ခု ဖြစ်ပါသည်။ Function syntax သည် concept အနေဖြင့် MathML (Mathematical Markup Language, [http://www.w3.org/Math/](http://www.w3.org/Math/)) နှင့် ဆင်တူသော်လည်း ၎င်းထက် ပိုရိုးရှင်းပြီး ပိုတိုတောင့်ပါသည်။
 
-A function definition consists of an operation, a value, a table, or a property (which evaluates
-to a value). The currently supported operations are:
+Function definition တစ်ခုသည် operation တစ်ခု၊ value တစ်ခု၊ table တစ်ခု၊ သို့မဟုတ် (value တစ်ခုအဖြစ် evaluate ဖြစ်သော) property တစ်ခုဖြင့် ဖွဲ့စည်းထားပါသည်။ လက်ရှိ support ပြုလုပ်ထားသော operation များမှာ-
 
-- `sum` (takes n arguments)
-- `difference` (takes n arguments)
-- `product` (takes n arguments)
-- `quotient` (takes 2 arguments)
-- `pow` (takes 2 arguments)
-- `exp` (takes 2 arguments)
-- `abs` (takes n arguments)
-- `sin` (takes 1 arguments)
-- `cos` (takes 1 arguments)
-- `tan` (takes 1 arguments)
-- `asin` (takes 1 arguments)
-- `acos` (takes 1 arguments)
-- `atan` (takes 1 arguments)
-- `atan2` (takes 2 arguments)
-- `min` (takes n arguments)
-- `max` (takes n arguments)
-- `avg` (takes n arguments)
-- `fraction` (takes 1 argument)
-- `mod` (takes 2 arguments)
-- `lt` (less than, takes 2 args)
-- `le` (less equal, takes 2 args)
-- `gt` (greater than, takes 2 args)
-- `ge` (greater than, takes 2 args)
-- `eq` (equal, takes 2 args)
-- `nq` (not equal, takes 2 args)
-- `and` (takes n args)
-- `or` (takes n args)
-- `not` (takes 1 args)
-- `if-then` (takes 2-3 args)
-- `switch` (takes 2 or more args)
-- `random` (Gaussian random number, takes no arguments)
-- `integer` (takes one argument)
+- `sum` (argument n ခု ယူသည်)
+- `difference` (argument n ခု ယူသည်)
+- `product` (argument n ခု ယူသည်)
+- `quotient` (argument ၂ ခု ယူသည်)
+- `pow` (argument ၂ ခု ယူသည်)
+- `exp` (argument ၂ ခု ယူသည်)
+- `abs` (argument n ခု ယူသည်)
+- `sin` (argument ၁ ခု ယူသည်)
+- `cos` (argument ၁ ခု ယူသည်)
+- `tan` (argument ၁ ခု ယူသည်)
+- `asin` (argument ၁ ခု ယူသည်)
+- `acos` (argument ၁ ခု ယူသည်)
+- `atan` (argument ၁ ခု ယူသည်)
+- `atan2` (argument ၂ ခု ယူသည်)
+- `min` (argument n ခု ယူသည်)
+- `max` (argument n ခု ယူသည်)
+- `avg` (argument n ခု ယူသည်)
+- `fraction` (argument ၁ ခု ယူသည်)
+- `mod` (argument ၂ ခု ယူသည်)
+- `lt` (less than, argument ၂ ခု ယူသည်)
+- `le` (less equal, argument ၂ ခု ယူသည်)
+- `gt` (greater than, argument ၂ ခု ယူသည်)
+- `ge` (greater than, argument ၂ ခု ယူသည်)
+- `eq` (equal, argument ၂ ခု ယူသည်)
+- `nq` (not equal, argument ၂ ခု ယူသည်)
+- `and` (argument n ခု ယူသည်)
+- `or` (argument n ခု ယူသည်)
+- `not` (argument ၁ ခု ယူသည်)
+- `if-then` (argument ၂-၃ ခု ယူသည်)
+- `switch` (argument ၂ ခု (သို့) ထက်ပို ယူသည်)
+- `random` (Gaussian random number, argument မယူပါ)
+- `integer` (argument ၁ ခု ယူသည်)
 
-An operation is defined in the configuration file as in the following example:
+Operation တစ်ခုကို configuration file တွင် အောက်ပါ ဥပမာကဲ့သို့ သတ်မှတ်ပါသည်-
 
 ```xml
 <sum>
@@ -58,13 +57,13 @@ An operation is defined in the configuration file as in the following example:
 </sum>
 ```
 
-In the example above, the sum element contains three other items. What gets evaluated is written algebraically as:
+အထက်ပါ ဥပမာတွင်၊ sum element တွင် item ထပ်ဆင့် သုံးခု ပါဝင်ပါသည်။ Evaluate ဖြစ်လာမည့်အရာကို algebraic အနေဖြင့် ရေးပါက-
 
 $$
 3.14159 + \mathtt{qbar} + \big( 0.125 \cdot \mathtt{wingarea} \big)
 $$
 
-A full function definition, such as is used in the aerodynamics section of a configuration file includes the function element, and other elements. It should be noted that there can be only one non-optional (non-documentation) element — that is, one operation element — in the top-level function definition. The <function> element cannot have more than one immediate child operation, `property`, `table`, or `value` element. Almost always, the first operation within the function element will be a product or sum. For example:
+Configuration file တစ်ခု၏ aerodynamics section တွင် အသုံးပြုသကဲ့သို့ function definition အပြည့်အစုံတစ်ခုတွင် function element နှင့် element အခြားများ ပါဝင်ပါသည်။ Top-level function definition တွင် non-optional (non-documentation) element တစ်ခုသာ — ဆိုလိုသည်မှာ operation element တစ်ခုသာ — ရှိနိုင်ကြောင်း သတိပြုရပါမည်။ `<function>` element သည် immediate child operation, `property`, `table`, သို့မဟုတ် `value` element တစ်ခုထက်ပို ရှိနိုင်မည် မဟုတ်ပါ။ အများစုတွင်၊ function element အတွင်းရှိ ပထမဆုံး operation သည် product သို့မဟုတ် sum ဖြစ်ပါလိမ့်မည်။ ဥပမာအနေဖြင့်-
 
 ```xml
 <function name="aero/moment/roll_moment_due_to_yaw_rate">
@@ -86,11 +85,11 @@ A full function definition, such as is used in the aerodynamics section of a con
 </function>
 ```
 
-The “lowest level” in a function definition is always a value or a property, which cannot itself contain another element. As shown, operations can contain values, properties, tables, or other operations.
+Function definition တစ်ခုတွင် “အနိမ့်ဆုံးအဆင့်” သည် အမြဲတမ်း value သို့မဟုတ် property ဖြစ်ပြီး၊ ၎င်းက element အခြားတစ်ခုကို မပါဝင်နိုင်ပါ။ ပြသထားသည့်အတိုင်း၊ operation များတွင် value, property, table, သို့မဟုတ် operation အခြားများ ပါဝင်နိုင်ပါသည်။
 
-Some operations take only a single argument. That argument, however, can be an operation (such as sum) which can contain other items. The point to keep in mind is any such contained operation evaluates to a single value — which is just what the trigonometric functions require (except atan2 , which takes two arguments).
+Operation အချို့သည် argument တစ်ခုတည်းသာ ယူပါသည်။ သို့သော်လည်း ထို argument သည် item အခြားများ ပါဝင်နိုင်သော operation (sum ကဲ့သို့) ဖြစ်နိုင်ပါသည်။ မှတ်သားထားသင့်သည့် အချက်မှာ ထိုကဲ့သို့ ပါဝင်သော operation တစ်ခုသည် value တစ်ခုတည်းသို့ evaluate ဖြစ်ခြင်း — ၎င်းသည် trigonometric function များ (argument ၂ ခု ယူသော atan2 မှလွဲ၍) လိုအပ်သည့်အရာပင် ဖြစ်ပါသည်။
 
-Finally, within a function definition, there are some shorthand aliases that can be used for brevity in place of the standard element tags. Properties, values, and tables are normally referred to with the tags, `<property>`, `<value>`, and `<table>`. Within a function definition only, those elements can be referred to with the tags, `<p>`, `<v>`, and `<t>`. Thus, the previous example could be written to look like this:
+နောက်ဆုံးအနေဖြင့်၊ function definition တစ်ခုအတွင်း၊ standard element tag များအစား အတိုကောက်အဖြစ် အသုံးပြုနိုင်သော shorthand alias အချို့ ရှိပါသည်။ Property, value, နှင့် table များကို ပုံမှန်အားဖြင့် tag `<property>`, `<value>`, နှင့် `<table>` ဖြင့် ရည်ညွှန်းပါသည်။ Function definition အတွင်းသာ၊ ထို element များကို tag `<p>`, `<v>`, နှင့် `<t>` ဖြင့် ရည်ညွှန်းနိုင်ပါသည်။ ထို့ကြောင့်၊ ယခင်ဥပမာကို ဤကဲ့သို့ ရေးသားနိုင်ပါသည်-
 
 ```xml
 <function name="aero/moment/roll_moment_due_to_yaw_rate">
@@ -112,16 +111,16 @@ Finally, within a function definition, there are some shorthand aliases that can
 </function>
 ```
 
-An example of tabular functions used in aerodynamic modeling is given by ground-effect factors affecting lift and drag. An explanation of the ground effect is given in the figure below.
+Aerodynamic modeling တွင် အသုံးပြုသော tabular function ဥပမာတစ်ခုကို lift နှင့် drag ကို ထိခိုက်စေသော ground-effect factor များက ပေးထားပါသည်။ Ground effect ၏ ရှင်းလင်းချက်ကို အောက်ပါပုံတွင် ဖော်ပြထားပါသည်။
 
 <figure markdown>
   ![Ground effect](../../assets/img/ac_ground_effect.svg){: .center width="100%" }
   <figcaption>
-    Explanation of ground effect.
+    Ground effect ၏ ရှင်းလင်းချက်။
   </figcaption>
 </figure>
 
-To see how the ground effect can be modelled in JSBSim one can look at the Cessna 172 Skyhawk model. This is implemented in the file: `<JSBSim-root-dir>/aircraft/c172p/c172p.xml`. In the `<aerodynamics/>` block of this XML file two non-dimensional factors are modeled, $K_{C_D,\mathrm{ge}}$ and $K_{C_L,\mathrm{ge}}$, which are functions of the non-dimensional height above the ground and are to be thought of as multipliers of lift and drag, respectively. These factors are defined as follows:
+Ground effect ကို JSBSim တွင် မည်သို့ model ပြုလုပ်နိုင်သည်ကို ကြည့်ရန်၊ Cessna 172 Skyhawk model ကို ကြည့်နိုင်ပါသည်။ ၎င်းကို file: `<JSBSim-root-dir>/aircraft/c172p/c172p.xml` တွင် implement ပြုလုပ်ထားပါသည်။ ဤ XML file ၏ `<aerodynamics/>` block တွင် non-dimensional factor နှစ်ခုဖြစ်သော $K_{C_D,\mathrm{ge}}$ နှင့် $K_{C_L,\mathrm{ge}}$ ကို model ပြုလုပ်ထားပြီး၊ ၎င်းတို့မှာ ground အထက်ရှိ non-dimensional height ၏ function များဖြစ်ကာ အသီးသီး lift နှင့် drag ၏ multiplier များဟု ယူဆရပါသည်။ ဤ factor များကို အောက်ပါအတိုင်း သတ်မှတ်ထားပါသည်-
 
 ```xml
 <function name="aero/function/kCDge">
@@ -175,18 +174,18 @@ To see how the ground effect can be modelled in JSBSim one can look at the Cessn
 </function>
 ```
 
-The tabular functions `aero/function/kCDge and aero/function/kCLge`, representing the factors $K_{C_D,\mathrm{ge}}$ and $K_{C_L,\mathrm{ge}}$, are plotted in the figure below against the non-dimensional ground altitude $h/(b/2)$. The ground-effect is seen when the aircraft altitude above the ground is less than the wing semi-span $b/2$. For higher altitudes each of these two factors assume value 1.
+Factor $K_{C_D,\mathrm{ge}}$ နှင့် $K_{C_L,\mathrm{ge}}$ တို့ကို ကိုယ်စားပြုသော tabular function `aero/function/kCDge and aero/function/kCLge` ကို non-dimensional ground altitude $h/(b/2)$ နှင့် ဆန့်ကျင်၍ အောက်ပါပုံတွင် plot ဆွဲပြထားပါသည်။ လေယာဉ်၏ ground အထက် altitude သည် wing semi-span $b/2$ ထက် ငယ်သည့်အခါ ground-effect ကို တွေ့ရပါသည်။ Altitude ပိုမြင့်လာသည့်အခါ ဤ factor နှစ်ခုစီသည် value 1 ကို ယူပါသည်။
 
 <figure markdown>
   ![Ground effect CL CD](../../assets/img/c172_ground_effect_CL_CD.png){: .center width="70%" }
   <p markdown="span">
-    Plotted functions of non-dimensional ground altitude $h/(b/2)$, defining the properties named 'aero/function/kCLge' and 'aero/function/kCDge' in the aerodynamic model of c172p.
+    c172p ၏ aerodynamic model တွင် 'aero/function/kCLge' နှင့် 'aero/function/kCDge' ဟု အမည်ပေးထားသော property များကို သတ်မှတ်ပေးသော non-dimensional ground altitude $h/(b/2)$ ၏ plot လုပ်ထားသော function များ။
   </p>
 </figure>
 
-## Tables
+## Tables (Table များ)
 
-One, two, or three dimensional lookup tables can be defined in JSBSim for use in aerodynamics and function definitions. For a single "vector" lookup table, the format is as follows:
+အတိုင်း ၁ ခု၊ ၂ ခု၊ သို့မဟုတ် ၃ ခုပါသော lookup table များကို aerodynamics နှင့် function definition များတွင် အသုံးပြုရန် JSBSim တွင် သတ်မှတ်နိုင်ပါသည်။ "vector" lookup table တစ်ခုတည်းအတွက်၊ format မှာ အောက်ပါအတိုင်း ဖြစ်ပါသည်-
 
 ```xml
 <table name="property_name_0">
@@ -200,7 +199,7 @@ One, two, or three dimensional lookup tables can be defined in JSBSim for use in
 </table>
 ```
 
-The `lookup="row"` attribute in the `<independentVar/>` element is optional in this case; it is assumed that the `independentVar` is a row variable. A real example is as shown here:
+ဤကိစ္စတွင် `<independentVar/>` element ရှိ `lookup="row"` attribute သည် optional ဖြစ်ပါသည်၊ `independentVar` ကို row variable တစ်ခုဟု ယူဆထားပါသည်။ Real ဥပမာတစ်ခုကို ဤတွင် ပြသထားပါသည်-
 
 ```xml
 <table>
@@ -215,9 +214,9 @@ The `lookup="row"` attribute in the `<independentVar/>` element is optional in t
 </table>
 ```
 
-The first column in the data table represents the lookup index (or *breakpoints*, or keys). In this case, the lookup index is `aero/alpha-rad` (angle of attack in radians). If `aero/alpha-rad` is $0.26$ radians, the value returned from the lookup table would be $0.033$.
+Data table ၏ ပထမ column သည် lookup index (သို့မဟုတ် *breakpoint*, သို့မဟုတ် key) များကို ကိုယ်စားပြုပါသည်။ ဤကိစ္စတွင်၊ lookup index မှာ `aero/alpha-rad` (angle of attack, radian ဖြင့်) ဖြစ်ပါသည်။ `aero/alpha-rad` သည် $0.26$ radians ဖြစ်ပါက၊ lookup table မှ ပြန်ရသော value သည် $0.033$ ဖြစ်ပါလိမ့်မည်။
 
-The definition for a 2D table, is as follows:
+2D table တစ်ခုအတွက် definition မှာ အောက်ပါအတိုင်း ဖြစ်ပါသည်-
 
 ```xml
 <table name="property_name_0">
@@ -233,7 +232,7 @@ The definition for a 2D table, is as follows:
 </table>
 ```
 
-The data is in a gridded format. A real example is as shown below. Alpha in radians is the row lookup (alpha breakpoints are arranged in the first column) and flap position in degrees is split up in columns for deflections of 0, 10, 20, and 30 degrees):
+Data ကို grid format ဖြင့် ထားရှိပါသည်။ Real ဥပမာတစ်ခုကို အောက်တွင် ပြသထားပါသည်။ Radian ဖြင့် alpha သည် row lookup ဖြစ်ပြီး (alpha breakpoint များကို ပထမ column တွင် စီထားပါသည်) degree ဖြင့် flap position ကို deflection 0, 10, 20, နှင့် 30 degree အတွက် column များအဖြစ် ခွဲထားပါသည်-
 
 ```xml
 <table>
@@ -254,7 +253,7 @@ The data is in a gridded format. A real example is as shown below. Alpha in radi
 </table>
 ```
 
-The definition for a 3D table in a coefficient would be (for example):
+Coefficient တစ်ခုတွင် 3D table တစ်ခုအတွက် definition မှာ (ဥပမာအနေဖြင့်) ဤကဲ့သို့ ဖြစ်ပါသည်-
 
 ```xml
 <table name="property_name_0">
@@ -286,7 +285,7 @@ The definition for a 3D table in a coefficient would be (for example):
 </table>
 ```
 
-Note the breakpoint attribute in the tableData element, above. Here’s an example:
+အထက်ပါ tableData element ၏ breakpoint attribute ကို သတိပြုပါ။ ဥပမာတစ်ခု ဖော်ပြရန်-
 
 ```xml
 <table>
@@ -312,18 +311,12 @@ Note the breakpoint attribute in the tableData element, above. Here’s an examp
 </table>
 ```
 
-Note that table values are interpolated linearly, and no extrapolation is done at the table limits — the highest value a table will return is the highest value that is defined.
+Table value များကို linear အနေဖြင့် interpolate ပြုလုပ်ပြီး၊ table limit တွင် extrapolation မပြုလုပ်ကြောင်း — table တစ်ခု ပြန်ပေးနိုင်သည့် အမြင့်ဆုံးတန်ဖိုးသည် ၎င်းတွင် သတ်မှတ်ထားသော အမြင့်ဆုံး value ဖြစ်ကြောင်း သတိပြုပါ။
 
 ### Interpolate 1D
 
-Some lookup tables in simulation - particularly for aerodynamic data - can be four, five, six, or even more dimensional. 
-Interpolate1d returns the result from a 1-dimensional interpolation of the
-supplied values, with the value of the first immediate child element
-representing the lookup value into the table, and the following pairs of
-values representing the independent and dependent values. The first provided
-child element is expected to be a property. The interpolation does not
-extrapolate, but holds the highest value if the provided lookup value goes
-outside of the provided range. The format is as follows:
+Simulation ရှိ lookup table အချို့ (အထူးသဖြင့် aerodynamic data အတွက်) သည် dimension လေးခု၊ ငါးခု၊ ခြောက်ခု၊ သို့မဟုတ် ပို၍ပင် များနိုင်ပါသည်။
+Interpolate1d သည် ပေးအပ်ထားသော value များ၏ 1-dimensional interpolation ၏ ရလဒ်ကို ပြန်ပေးပါသည်၊ ပထမ immediate child element ၏ value သည် table ထဲသို့ lookup value ကို ကိုယ်စားပြုပြီး၊ နောက်ပါ value cặp များသည် independent နှင့် dependent value များကို ကိုယ်စားပြုပါသည်။ ပေးအပ်ထားသော ပထမ child element သည် property တစ်ခု ဖြစ်မည်ဟု မျှော်လင့်ပါသည်။ Interpolation က extrapolate မလုပ်ဘဲ၊ ပေးအပ်ထားသော lookup value သည် ပေးအပ်ထားသော range ၏ အပြင်ဘက်ရောက်သွားပါက အမြင့်ဆုံး value ကို ထိန်းထားပါသည်။ Format မှာ အောက်ပါအတိုင်း ဖြစ်ပါသည်-
 
 ```xml
 <interpolate1d>
@@ -333,7 +326,7 @@ outside of the provided range. The format is as follows:
 </interpolate1d>
 ```
 
-Example: If mach is 0.4, the interpolation will return 0.375. If mach is 1.5, the interpolation will return 0.60.
+ဥပမာ- Mach 0.4 ဖြစ်ပါက interpolation က 0.375 ကို ပြန်ပေးပါလိမ့်မည်။ Mach 1.5 ဖြစ်ပါက interpolation က 0.60 ကို ပြန်ပေးပါလိမ့်မည်။
 
 ```xml
 <interpolate1d>
@@ -344,12 +337,7 @@ Example: If mach is 0.4, the interpolation will return 0.375. If mach is 1.5, th
 </interpolate1d>
 ```
 
-The above example is very simplistic. A more involved example would use a
-function in any argument (except the first). That means that the breakpoint
-vector can be variable - which would probably not be common - but more
-importantly the values in the lookup vector (second column) could be
-function table elements of 1, 2, or 3 dimensions. The arguments could even
-be nested interpolate1d elements. For example:
+အထက်ပါ ဥပမာသည် အလွန် ရိုးရှင်းသော ဥပမာတစ်ခု ဖြစ်ပါသည်။ ပို၍ ရှုပ်ထွေးသော ဥပမာတစ်ခုတွင် (ပထမ argument မှလွဲ၍) argument မည်သည့်ခုမဆို function တစ်ခုကို အသုံးပြုနိုင်ပါသည်။ ဆိုလိုသည်မှာ breakpoint vector သည် variable ဖြစ်နိုင်ပါသည် — ၎င်းသည် ပုံမှန်မဟုတ်နိုင်ပါ — သို့သော် ပိုအရေးကြီးသည်မှာ lookup vector (ဒုတိယ column) ရှိ value များသည် dimension ၁ ခု၊ ၂ ခု သို့မဟုတ် ၃ ခုရှိသော function table element များ ဖြစ်နိုင်ပါသည်။ Argument များသည် nested interpolate1d element များပင် ဖြစ်နိုင်ပါသည်။ ဥပမာအနေဖြင့်-
 
 ```xml
 <function name="whatever">
@@ -362,7 +350,7 @@ be nested interpolate1d elements. For example:
 </function>
 ```
 
-Carrying this further:
+ဤအရာကို ပို၍ ဆက်လက် တိုးချဲ့ရန်-
 
 ```xml
 <function name="bigWhatever1">
@@ -390,23 +378,13 @@ Carrying this further:
 </function>
 ```
 
-The above effectively gives a five dimensional lookup table. It would be big
-and messy, in practice, but there it is. :-)
+အထက်ပါအရာက dimension ငါးခုပါသော lookup table တစ်ခုကို အကျိုးသက်ရောက်မှုအားဖြင့် ပေးပါသည်။ လက်တွေ့တွင် အလွန်ကြီးမားပြီး ရှုပ်ထွေးပါလိမ့်မည်၊ သို့သော်လည်း ထိုသို့ ဖြစ်ပါသည်။ :-)
 
-There is more, though. For very, very large aero databases there might be
-times when some aero coefficients do not need to be calculated. For
-instance, ground effects aero coefficients only need to be calculated close
-to the ground. Why waste CPU cycles when the ground effects do not
-contribute to the aero forces and moments? We can employ the `ifthen` element
-to bypass expensive computations. The `ifthen` element works as follows:
+ဆက်လက်၍ ရှိသေးပါသည်။ အလွန် အလွန်ကြီးမားသော aero database များအတွက်၊ aero coefficient အချို့ကို တွက်ချက်ရန် မလိုအပ်သည့် အချိန်များ ရှိနိုင်ပါသည်။ ဥပမာအားဖြင့်၊ ground effect aero coefficient များကို ground အနီးတွင်သာ တွက်ချက်ရန် လိုအပ်ပါသည်။ Ground effect က aero force နှင့် moment များကို မပံ့ပိုးသည့်အခါ CPU cycle ကို ဘာလို့ အလဟဿ ဖြုန်းနေရမလဲ? Expensive ဖြစ်သော computation များကို bypass ပြုလုပ်ရန် `ifthen` element ကို အသုံးပြုနိုင်ပါသည်။ `ifthen` element သည် အောက်ပါအတိုင်း အလုပ်လုပ်ပါသည်-
 
-If the value of the first immediate child element is 1, then the value of
-the second immediate child element is returned, otherwise the value of the
-third child element is returned.
+ပထမ immediate child element ၏ value သည် 1 ဖြစ်ပါက၊ ဒုတိယ immediate child element ၏ value ကို ပြန်ပေးပြီး၊ မဟုတ်ပါက တတိယ child element ၏ value ကို ပြန်ပေးပါသည်။
 
-If the value of the first immediate child element is 1, then the value of
-the second immediate child element is returned, otherwise the value of the
-third child element is returned.
+ပထမ immediate child element ၏ value သည် 1 ဖြစ်ပါက၊ ဒုတိယ immediate child element ၏ value ကို ပြန်ပေးပြီး၊ မဟုတ်ပါက တတိယ child element ၏ value ကို ပြန်ပေးပါသည်။
 
 ```xml
 <ifthen>
@@ -416,7 +394,7 @@ third child element is returned.
 </ifthen>
 ```
 
-Example: if flight-mode is greater than 2, then a value of 0.00 is returned, otherwise the value of the property control/pitch-lag is returned.
+ဥပမာ- flight-mode သည် 2 ထက်ကြီးပါက value 0.00 ကို ပြန်ပေးပြီး၊ မဟုတ်ပါက property control/pitch-lag ၏ value ကို ပြန်ပေးပါသည်။
 
 ```xml
 <ifthen>
@@ -426,7 +404,7 @@ Example: if flight-mode is greater than 2, then a value of 0.00 is returned, oth
 </ifthen>
 ```
 
-In our case, we could write the 5-dimensional table lookup as follows, returning a zero unless the gear is down:
+ကျွန်ုပ်တို့၏ ကိစ္စတွင်၊ gear ချမထားသရွေ့ zero ကို ပြန်ပေးသော dimension ၅ ခုပါ table lookup ကို အောက်ပါအတိုင်း ရေးနိုင်ပါသည်-
 
 ```xml
 <function name="propertyname">
@@ -458,9 +436,7 @@ In our case, we could write the 5-dimensional table lookup as follows, returning
 </function>
 ```
 
-The above example is non-sensical in a way, but the format is correct. 
-Performance-wise it is good because the tables do not get executed unless 
-absolutely needed in the lookup.
+အထက်ပါ ဥပမာသည် တစ်နည်းအားဖြင့် အဓိပ္ပာယ်မရှိသော်လည်း format က မှန်ကန်ပါသည်။ Performance ရှုထောင့်မှ ကြည့်ပါက ကောင်းမွန်ပါသည်၊ အကြောင်းမှာ lookup တွင် လက်တွေ့ လိုအပ်မှသာ table များကို execute လုပ်ခြင်း ဖြစ်ပါသည်။
 
 ---
 

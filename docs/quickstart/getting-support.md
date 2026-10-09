@@ -1,14 +1,14 @@
 ---
-title: Getting support
-description: Getting help with JSBSim.
+title: အကူအညီ ရယူခြင်း
+description: JSBSim နှင့်ပတ်သက်၍ အကူအညီ ရယူခြင်း။
 tags:
   - quickstart
   - support
 ---
 
-# Getting support
+# အကူအညီ ရယူခြင်း
 
-The best way to get support on JSBSim is to register on GitHub and *watch* the repository [github.com/JSBSim-Team/jsbsim](https://github.com/JSBSim-Team/jsbsim). You can subscribe to individual conversations in issues, pull requests, and team discussions, even if you're not watching the repository or a member of the team where the conversation is occuring. If you're no longer interested in a conversation, you can unsubscribe from any future notifications.
+JSBSim နှင့်ပတ်သက်၍ အကူအညီ အကောင်းဆုံး ရယူနည်းမှာ GitHub တွင် register လုပ်ပြီး repository [github.com/JSBSim-Team/jsbsim](https://github.com/JSBSim-Team/jsbsim) ကို *watch* လုပ်ထားခြင်း ဖြစ်ပါသည်။ Repository ကို watch မလုပ်ထားသည့်တိုင် သို့မဟုတ် ဆွေးနွေးမှု ဖြစ်ပေါ်နေသည့် team ၏ အဖွဲ့ဝင်မဟုတ်သည့်တိုင်၊ issue များ၊ pull request များနှင့် team ဆွေးနွေးမှုများတွင် သီးခြားစကားဝိုင်းများကို subscribe လုပ်နိုင်ပါသည်။ စကားဝိုင်းတစ်ခုကို စိတ်ဝင်စားမှု မရှိတော့ပါက၊ နောက်ထပ် အသိပေးချက် (notification) များကို unsubscribe လုပ်နိုင်ပါသည်။
 
-To learn more
-[read this guide](https://help.github.com/articles/subscribing-to-and-unsubscribing-from-notifications/).
+ပိုမိုလေ့လာလိုပါက
+[ဤလမ်းညွှန်ကို ဖတ်ပါ](https://help.github.com/articles/subscribing-to-and-unsubscribing-from-notifications/)။
